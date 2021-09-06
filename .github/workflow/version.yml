@@ -1,9 +1,0 @@
-- name: Version Badge
-  uses: schneegans/dynamic-badges-action@v1.1.0
-  with:
-    auth: ${{ secrets.GIST_SECRET }}
-    gistID: 2334637c45e40518ebbf47cb4a0d72bf
-    filename: test.json
-    label: beta
-    message: v1.0-beta1
-    color: orange
