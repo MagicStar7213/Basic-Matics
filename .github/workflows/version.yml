@@ -1,9 +1,17 @@
-- name: Create Awesome Badge
-  uses: schneegans/dynamic-badges-action@v1.1.0
+name: Dynamic Badges
+  # You may pin to the exact commit or the version.
+  # uses: Schneegans/dynamic-badges-action@5ba090896c84b3521c7a75bd8f4de12656e3f426
+  uses: Schneegans/dynamic-badges-action@5ba090896c84b3521c7a75bd8f4de12656e3f426
   with:
-    auth: ${{ secrets.GIST_SECRET }}
+    # Your secret with the gist scope
+    auth: ${{ secrets.GIST_SECRET }} 
+    # The ID of the gist to use
     gistID: 2334637c45e40518ebbf47cb4a0d72bf
-    filename: test.json
+    # The *.json filename of the badge data
+    filename: version.json
+    # The left text of the badge
     label: release
+    # The right text of the badge
     message: v1.0-beta1
+    # The right color of the badge
     color: orange
