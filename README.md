@@ -1,8 +1,8 @@
 # ![Logo](/src/main/resources/BSM-Official64.png)Basic-Matics #
-![Java](https://img.shields.io/badge/Java-16-%230375A6?style=flat-square&logo=java)
-![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-2021.2.1-blueviolet?style=flat-square&logo=intellijidea)
-![Gradle](https://img.shields.io/badge/Gradle-7.2-blue?style=flat-square&logo=gradle)
-![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat-square)
+![Java](https://img.shields.io/badge/Java-16-%230375A6?style=flat&logo=java)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-2021.2.1-blueviolet?style=flat&logo=intellijidea)
+![Gradle](https://img.shields.io/badge/Gradle-7.2-blue?style=flat&logo=gradle)
+![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat)
 
 ¡Hola! Bienvenido a mi primera aplicación, **Basic Matics**. Llevo algunos meses desarrollando esta primera versión, y por fin esta correcta.
 
