@@ -3,7 +3,7 @@
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-2021.2.1-blueviolet?style=flat&logo=intellijidea)
 ![Gradle](https://img.shields.io/badge/Gradle-7.2-blue?style=flat&logo=gradle)
 ![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat)
-![Github license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics?style=flat&logo=null)
+![Github license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics?style=flat)
 ![Github copyleft](https://img.shields.io/badge/get%20it%20in-Maven-e83a3a?style=flat&logo=apachemaven)
 
 ¡Hola! Bienvenido a mi primera aplicación, **Basic Matics**. Llevo algunos meses desarrollando esta primera versión, y por fin esta correcta.
