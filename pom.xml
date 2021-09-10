@@ -23,7 +23,7 @@
         <connection>scm:git:git://github.com/MagicStar7213/Basic-Matics.git</connection>
         <developerConnection>scm:git:git@github.com:MagicStar7213/Basic-Matics.git</developerConnection>
         <url>https://github.com/MagicStar7213/Basic-Matics</url>
-        <tag>v1.0-beta1</tag>
+        <tag>1.0-beta1</tag>
   </scm>
 
     <properties>
