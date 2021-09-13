@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.micromatic.basicmatics</groupId>
     <artifactId>basic-matics</artifactId>
-    <version>1.0-beta2-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 
     <name>Basic Matics</name>
     <description>This is a simple calc that will be one of the most used</description>
@@ -23,8 +23,8 @@
         <connection>scm:git:git://github.com/MagicStar7213/Basic-Matics.git</connection>
         <developerConnection>scm:git:git@github.com:MagicStar7213/Basic-Matics.git</developerConnection>
         <url>https://github.com/MagicStar7213/Basic-Matics</url>
-        <tag>v1.0-beta1</tag>
-  </scm>
+        <tag>v1.0-b1</tag>
+    </scm>
 
     <properties>
         <java.version>16</java.version>
@@ -89,22 +89,19 @@
                     <localCheckout>true</localCheckout>
                     <pushChanges>false</pushChanges>
                     <mavenExecutorId>forked-path</mavenExecutorId>
-                    <checkModificationExcludes>
-                        <checkModificationExclude>pom.xml</checkModificationExclude>
-                    </checkModificationExcludes>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.apache.maven.scm</groupId>
                         <artifactId>maven-scm-provider-gitexe</artifactId>
-                        <version>1.9.5</version>
+                        <version>1.11.2</version>
                     </dependency>
                 </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
+                <version>1.6.8</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
