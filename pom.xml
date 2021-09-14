@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.micromatic.basicmatics</groupId>
     <artifactId>basic-matics</artifactId>
-    <version>1.0-beta1</version>
+    <version>1.0-SNAPSHOT</version>
 
     <name>Basic Matics</name>
     <description>This is a simple calc that will be one of the most used</description>
