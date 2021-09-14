@@ -1,9 +1,9 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 group 'com.micromatic'
-version '1.0-Beta1'
+version '1.0-beta1'
 
 repositories {
     mavenCentral()
@@ -16,4 +16,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
