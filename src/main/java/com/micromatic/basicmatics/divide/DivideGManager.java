@@ -4,8 +4,8 @@ import javax.imageio.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
+import java.awt.event.WindowEvent;
+import java.io.*;
 import java.util.ArrayList;
 
 @SuppressWarnings({ "unchecked", "rawtypes"})
@@ -43,26 +43,26 @@ public class DivideGManager extends JFrame {
 		icons.add(img128);
 
 		setIconImages(icons);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		JMenu divideMenu = new JMenu(d);
 		divideMenu.setMnemonic(KeyEvent.VK_F);
 		setJMenuBar(menuBar);
-		
+
 		JPanel home = new JPanel();
 		JButton dvdm = new JButton(d);
 		dvdm.addActionListener(e -> {
-			dvd.setVisible(true);
 			dvdg.setVisible(false);
+			dvd.setVisible(true);
 		});
 		home.add(dvdm);
 		JButton dvdrm = new JButton(dr);
 		dvdrm.addActionListener(e -> {
-			dvdr.setVisible(true);
 			dvdg.setVisible(false);
+			dvdr.setVisible(true);
 		});
 		home.add(dvdrm);
-		
+
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(home, BorderLayout.CENTER);
 	}

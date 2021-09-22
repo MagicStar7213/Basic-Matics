@@ -24,7 +24,8 @@ public class DivideManager extends JFrame {
 	
 	private static final String title = "Basic Matics - Divide";
 	private static final String dv = "Divide";
-	
+
+	private static final DivideGManager dvdg = new DivideGManager();
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public DivideManager() {
 		setTitle(title);
@@ -48,7 +49,7 @@ public class DivideManager extends JFrame {
 		icons.add(img128);
 
 		setIconImages(icons);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		JMenu divideMenu = new JMenu(title);
 		divideMenu.setMnemonic(KeyEvent.VK_F);
