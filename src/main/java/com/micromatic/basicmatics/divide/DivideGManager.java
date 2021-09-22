@@ -1,11 +1,11 @@
 package com.micromatic.basicmatics.divide;
 
-import javax.imageio.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 @SuppressWarnings({ "unchecked", "rawtypes"})

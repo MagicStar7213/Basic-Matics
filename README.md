@@ -4,7 +4,6 @@
 ![Gradle](https://img.shields.io/badge/Gradle-7.2-blue?style=flat&logo=gradle)
 ![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat)
 ![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics)
-![Github copyleft](https://img.shields.io/badge/get%20it%20in-Maven-e83a3a?style=flat&logo=apachemaven)
 
 ¡Hola! Bienvenido a mi primera aplicación, **Basic Matics**. Llevo algunos meses desarrollando esta primera versión, y por fin esta correcta.
 
@@ -18,6 +17,9 @@ Yo casi desde mis comienzos en el mundo de la programación he usado Java. Así 
 ## 3. Cuál será su futuro? ##
 Está en una fase muy temprana, pero ya tengo previsto su futuro para llegar a la primera versión completa. 
 Primero, voy a actualizar el funcionamiento interno, simplificando varias funciones; y después, realizaré una gran actualización gráfica.
+
+## 4. Errores conocidos ##
+Actualmente hay un bug que no cierra correctamente las pestañas. Será solucionado cuanto antes
 
 ## Cosas adicionales ##
 1. Pronto publicaré la primera beta de la versión para Android
