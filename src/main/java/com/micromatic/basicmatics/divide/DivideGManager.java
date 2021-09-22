@@ -3,9 +3,10 @@ package com.micromatic.basicmatics.divide;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.security.Key;
 import java.util.ArrayList;
 
 @SuppressWarnings({ "unchecked", "rawtypes"})
@@ -18,7 +19,17 @@ public class DivideGManager extends JFrame {
 	private static final String d = "Divide";
 	private static final String dr = "Division Rest";
 	private static final String title = "Basic Matics- Divide Home";
-	
+
+	private final ActionListener dv = e -> {
+		dvdg.setVisible(false);
+		dvd.setVisible(true);
+	};
+
+	private final ActionListener dvr = e -> {
+		dvdg.setVisible(false);
+		dvdr.setVisible(true);
+	};
+
 	public DivideGManager() {
 		setTitle(title);
 		setSize(500, 400);
@@ -51,16 +62,10 @@ public class DivideGManager extends JFrame {
 
 		JPanel home = new JPanel();
 		JButton dvdm = new JButton(d);
-		dvdm.addActionListener(e -> {
-			dvdg.setVisible(false);
-			dvd.setVisible(true);
-		});
+		dvdm.addActionListener(dv);
 		home.add(dvdm);
 		JButton dvdrm = new JButton(dr);
-		dvdrm.addActionListener(e -> {
-			dvdg.setVisible(false);
-			dvdr.setVisible(true);
-		});
+		dvdrm.addActionListener(dvr);
 		home.add(dvdrm);
 
 		getContentPane().setLayout(new BorderLayout());

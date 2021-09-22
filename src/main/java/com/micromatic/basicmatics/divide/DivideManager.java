@@ -4,6 +4,7 @@ import com.micromatic.basicmatics.Ops;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -126,7 +127,7 @@ public class DivideManager extends JFrame {
 			}
 		});
 		dividef.add(divf);
-		
+
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(divide, BorderLayout.NORTH);
 		getContentPane().add(divided, BorderLayout.CENTER);
