@@ -4,7 +4,6 @@ import com.micromatic.basicmatics.Ops;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
