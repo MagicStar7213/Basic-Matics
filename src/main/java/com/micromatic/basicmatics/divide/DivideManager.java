@@ -5,6 +5,7 @@ import com.micromatic.basicmatics.Ops;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -82,7 +83,7 @@ public class DivideManager extends JFrame {
 			}
 		});
 		divide.add(div);
-		
+
 		JPanel divided = new JPanel();
 		divided.setBorder(BorderFactory.createTitledBorder("Divide Decimal Numbers"));
 		JTextField divda = new JTextField(15);
@@ -90,7 +91,9 @@ public class DivideManager extends JFrame {
 		divided.add(divda);
 		divided.add(divdb);
 		JButton divd = new JButton(dv);
-		divd.addActionListener(e -> {
+		divided.add(divd);
+
+		ActionListener full = ae -> {
 			strda = divda.getText();
 			strdb = divdb.getText();
 			try {
@@ -98,38 +101,42 @@ public class DivideManager extends JFrame {
 				d = Double.parseDouble(strdb);
 				output.setText(null);
 				output.append("The result is " + dvd.divisionDouble(c, d));
-			} catch (NumberFormatException a) {
+			} catch (NumberFormatException e) {
 				output.setText(null);
-				output.append("The application found the exception " + a);
+				output.append("The application found the exception " + e);
 			}
-		});
-		divided.add(divd);
-		
-		JPanel dividef = new JPanel();
-		dividef.setBorder(BorderFactory.createTitledBorder("Divide Float Numbers"));
-		JTextField divfa = new JTextField(15);
-		JTextField divfb = new JTextField(15);
-		dividef.add(divfa);
-		dividef.add(divfb);
-		JButton divf = new JButton(dv);
-		divf.addActionListener(ae -> {
-			strfa = divfa.getText();
-			strfb = divfb.getText();
+		};
+		ActionListener ap = ae -> {
+			strfa = divda.getText();
+			strfb = divdb.getText();
 			try {
 				e = Float.parseFloat(strfa);
 				f = Float.parseFloat(strfb);
 				output.setText(null);
 				output.append("The result is " + dvd.divisionFloat(e, f));
-			} catch (NumberFormatException a) {
+			} catch (NumberFormatException e) {
 				output.setText(null);
-				output.append("The application found the exception " + a);
+				output.append("The application found the exception " + e);
+			}
+		};
+		divd.addActionListener(full);
+
+		Choice dec = new Choice();
+		dec.add("Full");
+		dec.add("Approximated");
+		dec.addItemListener(l -> {
+			if (dec.getSelectedItem().equals("Approximated")) {
+				divd.removeActionListener(full);
+				divd.addActionListener(ap);
+			} else {
+				divd.removeActionListener(ap);
+				divd.addActionListener(full);
 			}
 		});
-		dividef.add(divf);
+		divided.add(dec);
 
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(divide, BorderLayout.NORTH);
 		getContentPane().add(divided, BorderLayout.CENTER);
-		getContentPane().add(dividef, BorderLayout.SOUTH);
 	}
 }
