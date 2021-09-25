@@ -1,5 +1,5 @@
 plugins {
-    id 'java-library'
+    id 'java'
 }
 
 group 'com.micromatic'
@@ -16,9 +16,4 @@ dependencies {
 
 test {
     useJUnitPlatform()
-}
-
-java {
-    withSourcesJar()
-    withJavadocJar()
 }
