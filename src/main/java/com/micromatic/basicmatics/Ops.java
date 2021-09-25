@@ -1,5 +1,7 @@
 package com.micromatic.basicmatics;
 
+import static java.lang.Math.pow;
+
 public class Ops {
     public static class Divide {
 
@@ -45,31 +47,16 @@ public class Ops {
 
     public static class Potence {
 
-        public int ptnc(int base, int exp) {
-            int ct;
-            int res = 1;
-            for(ct = 1; ct <= exp; ct++) {
-                res = res * base;
-            }
-            return res;
+        public int ptnc(Integer base, Integer exp) {
+            return (int) pow(base, exp);
         }
 
         public double ptncDouble(double base, double exp) {
-            double ct;
-            double res = 1;
-            for(ct = 1; ct <= exp; ct++) {
-                res = res * base;
-            }
-            return res;
+            return pow(base, exp);
         }
 
         public float ptncFloat(float base, float exp) {
-            float ct;
-            float res = 1;
-            for(ct = 1; ct <= exp; ct++) {
-                res = res * base;
-            }
-            return res;
+            return (float) pow(base, exp);
         }
     }
 
@@ -90,12 +77,8 @@ public class Ops {
 
     public static class Sqrt {
 
-        private Double d;
-
         public int sqrt(Integer a) {
-            d = a.doubleValue();
-            d = Math.sqrt(d);
-            return (d.intValue());
+            return (int) Math.sqrt(a);
         }
 
         public double sqrtDouble(double a) {
@@ -103,9 +86,7 @@ public class Ops {
         }
 
         public float sqrtFloat(Float a) {
-            d = a.doubleValue();
-            d = Math.sqrt(d);
-            return (d.floatValue());
+            return (float) Math.sqrt(a);
         }
     }
 
