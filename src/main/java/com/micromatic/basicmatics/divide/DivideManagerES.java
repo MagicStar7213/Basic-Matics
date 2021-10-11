@@ -5,6 +5,7 @@ import com.micromatic.basicmatics.Ops;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -73,7 +74,7 @@ public class DivideManagerES extends JFrame {
                 a = Integer.parseInt(stra);
                 b = Integer.parseInt(strb);
                 output.setText(null);
-                output.append("El resultado es " + dvd.division(a, b));
+                output.append("El resultado es " + dvd.divide(a, b));
             } catch (NumberFormatException nfe) {
                 output.setText(null);
                 output.append("La aplicaci\u00F3n se encontr\u00F3 con el problema " + nfe);
@@ -88,46 +89,72 @@ public class DivideManagerES extends JFrame {
         divided.add(divda);
         divided.add(divdb);
         JButton divd = new JButton(dv.replaceAll(dv, "Dividir"));
-        divd.addActionListener(ae -> {
+        divided.add(divd);
+
+        ActionListener full = ae -> {
             strda = divda.getText();
             strdb = divdb.getText();
             try {
                 c = Double.parseDouble(strda);
                 d = Double.parseDouble(strdb);
+                double res = dvd.divideDouble(c, d);
+                String sres = Double.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
                 output.setText(null);
-                output.append("El resultado es " + dvd.divisionDouble(c, d));
-            } catch (NumberFormatException nfe) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n se encontr\u00F3 con el problema " + nfe);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
             }
-        });
-        divided.add(divd);
-
-        JPanel dividef = new JPanel();
-        dividef.setBorder(BorderFactory.createTitledBorder("Dividir N\u00FAmeros Float"));
-        JTextField divfa = new JTextField(15);
-        JTextField divfb = new JTextField(15);
-        dividef.add(divfa);
-        dividef.add(divfb);
-        JButton divf = new JButton(dv);
-        divf.addActionListener(ae -> {
-            strfa = divfa.getText();
-            strfb = divfb.getText();
+        };
+        ActionListener ap = ae -> {
+            strfa = divda.getText();
+            strfb = divdb.getText();
             try {
                 e = Float.parseFloat(strfa);
                 f = Float.parseFloat(strfb);
+                float res = dvd.divideFloat(e, f);
+                String sres = Float.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
                 output.setText(null);
-                output.append("El resultado es " + dvd.divisionFloat(e, f));
-            } catch (NumberFormatException nfe) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n se encontr\u00F3 con el problema " + nfe);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
+            }
+        };
+        divd.addActionListener(full);
+
+        Choice dec = new Choice();
+        dec.add("Exacto");
+        dec.add("Aproximado");
+        dec.addItemListener(l -> {
+            if (dec.getSelectedItem().equals("Approximado")) {
+                divd.removeActionListener(full);
+                divd.addActionListener(ap);
+            } else {
+                divd.removeActionListener(ap);
+                divd.addActionListener(full);
             }
         });
-        dividef.add(divf);
+        divided.add(dec);
 
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(divide, BorderLayout.NORTH);
         getContentPane().add(divided, BorderLayout.CENTER);
-        getContentPane().add(dividef, BorderLayout.SOUTH);
     }
 }
