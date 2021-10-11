@@ -61,28 +61,6 @@ public class DivideManager extends JFrame {
 		output.setEditable(false);
 		console.add(output);
 		menuBar.add(console);
-		
-		JPanel divide = new JPanel();
-		divide.setBorder(BorderFactory.createTitledBorder(dv));
-		JTextField diva = new JTextField(15);
-		JTextField divb = new JTextField(15);
-		divide.add(diva);
-		divide.add(divb);
-		JButton div = new JButton(dv);
-		div.addActionListener(ae -> {
-			stra = diva.getText();
-			strb = divb.getText();
-			try {
-				a = Integer.parseInt(stra);
-				b = Integer.parseInt(strb);
-				output.setText(null);
-				output.append("The result is " + dvd.division(a, b));
-			} catch (NumberFormatException e) {
-				output.setText(null);
-				output.append("The application found the exception " + e);
-			}
-		});
-		divide.add(div);
 
 		JPanel divided = new JPanel();
 		divided.setBorder(BorderFactory.createTitledBorder("Divide Decimal Numbers"));
@@ -99,8 +77,18 @@ public class DivideManager extends JFrame {
 			try {
 				c = Double.parseDouble(strda);
 				d = Double.parseDouble(strdb);
-				output.setText(null);
-				output.append("The result is " + dvd.divisionDouble(c, d));
+				double res = dvd.divideDouble(c, d);
+				String sres = Double.toString(res);
+				int ind = sres.indexOf(".");
+				if (sres.substring(ind + 1).equals("0")) {
+					res = Double.parseDouble(sres);
+					output.setText(null);
+					output.append("The result is " + (int) res);
+				} else {
+					res = Double.parseDouble(sres);
+					output.setText(null);
+					output.append("The result is " + res);
+				}
 			} catch (NumberFormatException e) {
 				output.setText(null);
 				output.append("The application found the exception " + e);
@@ -112,8 +100,18 @@ public class DivideManager extends JFrame {
 			try {
 				e = Float.parseFloat(strfa);
 				f = Float.parseFloat(strfb);
-				output.setText(null);
-				output.append("The result is " + dvd.divisionFloat(e, f));
+				float res = dvd.divideFloat(e, f);
+				String sres = Float.toString(res);
+				int ind = sres.indexOf(".");
+				if (sres.substring(ind + 1).equals("0")) {
+					res = Float.parseFloat(sres);
+					output.setText(null);
+					output.append("The result is " + (int) res);
+				} else {
+					res = Float.parseFloat(sres);
+					output.setText(null);
+					output.append("The result is " + res);
+				}
 			} catch (NumberFormatException e) {
 				output.setText(null);
 				output.append("The application found the exception " + e);
@@ -122,7 +120,7 @@ public class DivideManager extends JFrame {
 		divd.addActionListener(full);
 
 		Choice dec = new Choice();
-		dec.add("Full");
+		dec.add("Exact");
 		dec.add("Approximated");
 		dec.addItemListener(l -> {
 			if (dec.getSelectedItem().equals("Approximated")) {
@@ -136,7 +134,6 @@ public class DivideManager extends JFrame {
 		divided.add(dec);
 
 		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(divide, BorderLayout.NORTH);
 		getContentPane().add(divided, BorderLayout.CENTER);
 	}
 }

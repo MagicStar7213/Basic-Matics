@@ -61,29 +61,7 @@ public class RestManager extends JFrame {
 		output.setEditable(false);
 		console.add(output);
 		menuBar.add(console);
-		
-		JPanel ret = new JPanel();
-		ret.setBorder(BorderFactory.createTitledBorder("Rest"));
-		JTextField rsta = new JTextField(15);
-		JTextField rstb = new JTextField(15);
-		ret.add(rsta);
-		ret.add(rstb);
-		JButton rst = new JButton("Rest");
-		rst.addActionListener(e -> {
-			stra = rsta.getText();
-			strb = rstb.getText();
-			try {
-				a = Integer.parseInt(stra);
-				b = Integer.parseInt(strb);
-				output.setText(null);
-				output.append("The result is " + rest.rest(a, b));
-			} catch (NumberFormatException a) {
-				output.setText(null);
-				output.append("The application has encountered a " + a);
-			}
-		});
-		ret.add(rst);
-		
+
 		JPanel resd = new JPanel();
 		resd.setBorder(BorderFactory.createTitledBorder("Rest Decimal Numbers"));
 		JTextField rstda = new JTextField(15);
@@ -92,8 +70,8 @@ public class RestManager extends JFrame {
 		resd.add(rstdb);
 		JButton rstd = new JButton("Rest");
 		rstd.addActionListener(e -> {
-			strda = rsta.getText();
-			strdb = rstb.getText();
+			strda = rstda.getText();
+			strdb = rstdb.getText();
 			try {
 				c = Double.parseDouble(strda);
 				d = Double.parseDouble(strdb);
@@ -169,7 +147,6 @@ public class RestManager extends JFrame {
 		resd.add(dec);
 		
 		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(ret, BorderLayout.NORTH);
 		getContentPane().add(resd, BorderLayout.CENTER);
 	}
 }

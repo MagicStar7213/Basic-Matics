@@ -61,29 +61,7 @@ SumeManager extends JFrame {
 		JTextArea output = new JTextArea();
 		output.setEditable(false);
 		console.add(output);
-		
-		JPanel sumeP = new JPanel();
-		sumeP.setBorder(BorderFactory.createTitledBorder("Sume"));
-		JTextField sumea = new JTextField(15);
-		JTextField sumeb = new JTextField(15);
-		sumeP.add(sumea);
-		sumeP.add(sumeb);
-		JButton bsume = new JButton("Sume");
-		bsume.addActionListener(e -> {
-			stra = sumea.getText();
-			strb = sumeb.getText();
-			try {
-				a = Integer.parseInt(stra);
-				b = Integer.parseInt(strb);
-				output.setText(null);
-				output.append("The result is " + sume.sume(a, b));
-			} catch (NumberFormatException a) {
-				output.setText(null);
-				output.append("The application has encountered a " + a);
-			}
-		});
-		sumeP.add(bsume);
-		
+
 		JPanel sumedP = new JPanel();
 		sumedP.setBorder(BorderFactory.createTitledBorder("Sume Decimal Numbers"));
 		JTextField sumeda = new JTextField(15);
@@ -169,7 +147,6 @@ SumeManager extends JFrame {
 		sumedP.add(dec);
 		
 		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(sumeP, BorderLayout.NORTH);
 		getContentPane().add(sumedP, BorderLayout.CENTER);
 	}
 }
