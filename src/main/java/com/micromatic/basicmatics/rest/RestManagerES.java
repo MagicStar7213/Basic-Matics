@@ -5,6 +5,7 @@ import com.micromatic.basicmatics.Ops;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -60,12 +61,12 @@ public class RestManagerES extends JFrame {
         console.add(output);
         menuBar.add(console);
 
-        JPanel res = new JPanel();
-        res.setBorder(BorderFactory.createTitledBorder("Restar"));
+        JPanel resi = new JPanel();
+        resi.setBorder(BorderFactory.createTitledBorder("Restar"));
         JTextField rsta = new JTextField(15);
         JTextField rstb = new JTextField(15);
-        res.add(rsta);
-        res.add(rstb);
+        resi.add(rsta);
+        resi.add(rstb);
         JButton rst = new JButton("Restar");
         rst.addActionListener(e -> {
             stra = rsta.getText();
@@ -80,7 +81,7 @@ public class RestManagerES extends JFrame {
                 output.append("La aplicaci\u00F3n encontr\u00F3 una " + a);
             }
         });
-        res.add(rst);
+        resi.add(rst);
 
         JPanel resd = new JPanel();
         resd.setBorder(BorderFactory.createTitledBorder("Restar N\u00FAmeros Decimales"));
@@ -104,31 +105,70 @@ public class RestManagerES extends JFrame {
         });
         resd.add(rstd);
 
-        JPanel resf = new JPanel();
-        resf.setBorder(BorderFactory.createTitledBorder("Restar N\u00FAmeros Float"));
-        JTextField rstfa = new JTextField(15);
-        JTextField rstfb = new JTextField(15);
-        resf.add(rstfa);
-        resf.add(rstfb);
-        JButton rstf = new JButton("Restar");
-        rstf.addActionListener(ae -> {
-            strfa = rstfa.getText();
-            strfb = rstfb.getText();
+        ActionListener full = ae -> {
+            strda = rstda.getText();
+            strdb = rstdb.getText();
+            try {
+                c = Double.parseDouble(strda);
+                d = Double.parseDouble(strdb);
+                double res = rest.restDouble(c, d);
+                String sres = Double.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
+                output.setText(null);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
+            }
+        };
+        ActionListener ap = ae -> {
+            strfa = rstda.getText();
+            strfb = rstdb.getText();
             try {
                 e = Float.parseFloat(strfa);
                 f = Float.parseFloat(strfb);
+                float res = rest.restFloat(e, f);
+                String sres = Float.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
                 output.setText(null);
-                output.append("El resultado es" + rest.restFloat(e, f));
-            } catch (NumberFormatException a) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n encontr\u00F3 una " + a);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
+            }
+        };
+        rstd.addActionListener(full);
+
+        Choice dec = new Choice();
+        dec.add("Exacto");
+        dec.add("Aproximado");
+        dec.addItemListener(l -> {
+            if (dec.getSelectedItem().equals("Approximado")) {
+                rstd.removeActionListener(full);
+                rstd.addActionListener(ap);
+            } else {
+                rstd.removeActionListener(ap);
+                rstd.addActionListener(full);
             }
         });
-        resd.add(rstd);
+        resd.add(dec);
 
         getContentPane().setLayout(new BorderLayout());
-        getContentPane().add(res, BorderLayout.NORTH);
+        getContentPane().add(resi, BorderLayout.NORTH);
         getContentPane().add(resd, BorderLayout.CENTER);
-        getContentPane().add(resf, BorderLayout.SOUTH);
     }
 }
