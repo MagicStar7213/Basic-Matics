@@ -5,6 +5,7 @@ import com.micromatic.basicmatics.Ops;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -102,31 +103,70 @@ public class SumeManagerES extends JFrame {
         });
         sumedP.add(bsumed);
 
-        JPanel sumefP = new JPanel();
-        sumefP.setBorder(BorderFactory.createTitledBorder("Sumar N\u00FAmeros Float"));
-        JTextField sumefa = new JTextField(15);
-        JTextField sumefb = new JTextField(15);
-        sumefP.add(sumefa);
-        sumefP.add(sumefb);
-        JButton bsumef = new JButton("Sumar");
-        bsumef.addActionListener(ae -> {
-            strfa = sumefa.getText();
-            strfb = sumefb.getText();
+        ActionListener full = ae -> {
+            strda = sumeda.getText();
+            strdb = sumedb.getText();
+            try {
+                c = Double.parseDouble(strda);
+                d = Double.parseDouble(strdb);
+                double res = sume.sumeDouble(c, d);
+                String sres = Double.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
+                output.setText(null);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
+            }
+        };
+        ActionListener ap = ae -> {
+            strfa = sumeda.getText();
+            strfb = sumedb.getText();
             try {
                 e = Float.parseFloat(strfa);
                 f = Float.parseFloat(strfb);
+                float res = sume.sumeFloat(e, f);
+                String sres = Float.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
                 output.setText(null);
-                output.append("El resultado es " + sume.sumeFloat(e, f));
-            } catch (NumberFormatException a) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n encontr\u00F3 una " + a);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
+            }
+        };
+        bsumed.addActionListener(full);
+
+        Choice dec = new Choice();
+        dec.add("Exacto");
+        dec.add("Aproximado");
+        dec.addItemListener(l -> {
+            if (dec.getSelectedItem().equals("Approximado")) {
+                bsumed.removeActionListener(full);
+                bsumed.addActionListener(ap);
+            } else {
+                bsumed.removeActionListener(ap);
+                bsumed.addActionListener(full);
             }
         });
-        sumefP.add(bsumef);
+        sumedP.add(dec);
 
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(sumeP, BorderLayout.NORTH);
         getContentPane().add(sumedP, BorderLayout.CENTER);
-        getContentPane().add(sumefP, BorderLayout.SOUTH);
     }
 }

@@ -5,15 +5,15 @@ import static java.lang.Math.pow;
 public class Ops {
     public static class Divide {
 
-        public int division(int a, int b) {
+        public int divide(int a, int b) {
             return a / b;
         }
 
-        public float divisionFloat(float a, float b) {
+        public float divideFloat(float a, float b) {
             return a / b;
         }
 
-        public double divisionDouble(double a, double b) {
+        public double divideDouble(double a, double b) {
             return a / b;
         }
 

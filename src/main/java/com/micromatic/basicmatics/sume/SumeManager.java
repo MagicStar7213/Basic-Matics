@@ -5,6 +5,7 @@ import com.micromatic.basicmatics.Ops;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -104,32 +105,71 @@ SumeManager extends JFrame {
 			}
 		});
 		sumedP.add(bsumed);
-		
-		JPanel sumefP = new JPanel();
-		sumefP.setBorder(BorderFactory.createTitledBorder("Sume Float Numbers"));
-		JTextField sumefa = new JTextField(15);
-		JTextField sumefb = new JTextField(15);
-		sumefP.add(sumefa);
-		sumefP.add(sumefb);
-		JButton bsumef = new JButton("Sume");
-		bsumef.addActionListener(ae -> {
-			strfa = sumefa.getText();
-			strfb = sumefb.getText();
+
+		ActionListener full = ae -> {
+			strda = sumeda.getText();
+			strdb = sumedb.getText();
+			try {
+				c = Double.parseDouble(strda);
+				d = Double.parseDouble(strdb);
+				double res = sume.sumeDouble(c, d);
+				String sres = Double.toString(res);
+				int ind = sres.indexOf(".");
+				if (sres.substring(ind + 1).equals("0")) {
+					res = Double.parseDouble(sres);
+					output.setText(null);
+					output.append("The result is " + (int) res);
+				} else {
+					res = Double.parseDouble(sres);
+					output.setText(null);
+					output.append("The result is " + res);
+				}
+			} catch (NumberFormatException e) {
+				output.setText(null);
+				output.append("The application found the exception " + e);
+			}
+		};
+		ActionListener ap = ae -> {
+			strfa = sumeda.getText();
+			strfb = sumedb.getText();
 			try {
 				e = Float.parseFloat(strfa);
 				f = Float.parseFloat(strfb);
+				float res = sume.sumeFloat(e, f);
+				String sres = Float.toString(res);
+				int ind = sres.indexOf(".");
+				if (sres.substring(ind + 1).equals("0")) {
+					res = Float.parseFloat(sres);
+					output.setText(null);
+					output.append("The result is " + (int) res);
+				} else {
+					res = Float.parseFloat(sres);
+					output.setText(null);
+					output.append("The result is " + res);
+				}
+			} catch (NumberFormatException e) {
 				output.setText(null);
-				output.append("The result is " + sume.sumeFloat(e, f));
-			} catch (NumberFormatException a) {
-				output.setText(null);
-				output.append("The application has encountered a " + a);
+				output.append("The application found the exception " + e);
+			}
+		};
+		bsumed.addActionListener(full);
+
+		Choice dec = new Choice();
+		dec.add("Exact");
+		dec.add("Approximated");
+		dec.addItemListener(l -> {
+			if (dec.getSelectedItem().equals("Approximated")) {
+				bsumed.removeActionListener(full);
+				bsumed.addActionListener(ap);
+			} else {
+				bsumed.removeActionListener(ap);
+				bsumed.addActionListener(full);
 			}
 		});
-		sumefP.add(bsumef);
+		sumedP.add(dec);
 		
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(sumeP, BorderLayout.NORTH);
 		getContentPane().add(sumedP, BorderLayout.CENTER);
-		getContentPane().add(sumefP, BorderLayout.SOUTH);
 	}
 }

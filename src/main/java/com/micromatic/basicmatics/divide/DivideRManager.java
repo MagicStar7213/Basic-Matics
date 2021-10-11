@@ -5,7 +5,6 @@ import com.micromatic.basicmatics.Ops.Divide;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -92,72 +91,46 @@ public class DivideRManager extends JFrame {
 		dividedR.add(divdra);
 		dividedR.add(divdrb);
 		JButton divdr = new JButton("Division Rest");
-		dividedR.add(divdr);
-
-		ActionListener full = ae -> {
+		divdr.addActionListener(e -> {
 			strda = divdra.getText();
 			strdb = divdrb.getText();
 			try {
 				c = Double.parseDouble(strda);
 				d = Double.parseDouble(strdb);
-				double res = dvd.divideDouble(c, d);
-				String sres = Double.toString(res);
-				int ind = sres.indexOf(".");
-				if (sres.substring(ind + 1).equals("0")) {
-					res = Double.parseDouble(sres);
-					output.setText(null);
-					output.append("The result is " + (int) res);
-				} else {
-					res = Double.parseDouble(sres);
-					output.setText(null);
-					output.append("The result is " + res);
-				}
-			} catch (NumberFormatException e) {
 				output.setText(null);
-				output.append("The application found the exception " + e);
+				output.append("The rest of the division is " + dvd.divisionDoubleRest(c, d));
+			} catch (NumberFormatException a) {
+				output.setText(null);
+				output.append("The application has encountered a " + a);
 			}
-		};
-		ActionListener ap = ae -> {
-			strfa = divdra.getText();
-			strfb = divdrb.getText();
+		});
+		dividedR.add(divdr);
+		
+		JPanel dividefR = new JPanel();
+		dividefR.setBorder(BorderFactory.createTitledBorder("Float Division Rest"));
+		JTextField divfra = new JTextField(15);
+		JTextField divfrb = new JTextField(15);
+		dividefR.add(divfra);
+		dividefR.add(divfrb);
+		JButton divfr = new JButton("Division Rest");
+		divfr.addActionListener(ae -> {
+			strfa = divfra.getText();
+			strfb = divfrb.getText();
 			try {
 				e = Float.parseFloat(strfa);
 				f = Float.parseFloat(strfb);
-				float res = dvd.divideFloat(e, f);
-				String sres = Float.toString(res);
-				int ind = sres.indexOf(".");
-				if (sres.substring(ind + 1).equals("0")) {
-					res = Float.parseFloat(sres);
-					output.setText(null);
-					output.append("The result is " + (int) res);
-				} else {
-					res = Float.parseFloat(sres);
-					output.setText(null);
-					output.append("The result is " + res);
-				}
-			} catch (NumberFormatException e) {
 				output.setText(null);
-				output.append("The application found the exception " + e);
-			}
-		};
-		divdr.addActionListener(full);
-
-		Choice dec = new Choice();
-		dec.add("Exact");
-		dec.add("Approximated");
-		dec.addItemListener(l -> {
-			if (dec.getSelectedItem().equals("Approximated")) {
-				divdr.removeActionListener(full);
-				divdr.addActionListener(ap);
-			} else {
-				divdr.removeActionListener(ap);
-				divdr.addActionListener(full);
+				output.append("The rest of the division is " + dvd.divisionFloatRest(e, f));
+			} catch (NumberFormatException a) {
+				output.setText(null);
+				output.append("The application has encountered " + a);
 			}
 		});
-		dividedR.add(dec);
+		dividefR.add(divfr);
 		
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(divideR, BorderLayout.NORTH);
 		getContentPane().add(dividedR, BorderLayout.CENTER);
+		getContentPane().add(dividefR, BorderLayout.SOUTH);
 	}
 }

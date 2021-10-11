@@ -5,6 +5,7 @@ import com.micromatic.basicmatics.Ops.Sqrt;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -96,29 +97,68 @@ public class SqrtManager extends JFrame {
 			}
 		});
 		psqrtd.add(sqrtd);
-		
-		JPanel psqrtf = new JPanel();
-		psqrtf.setBorder(BorderFactory.createTitledBorder("Square Root of Decimal Numbers"));
-		JTextField sqrtft = new JTextField(15);
-		psqrtf.add(sqrtft);
-		JButton sqrtf = new JButton("Square Root");
-		sqrtf.addActionListener(ae -> {
-			strfa = sqrtft.getText();
+
+		ActionListener full = ae -> {
+			strda = sqrtt.getText();
 			try {
-				e = Float.parseFloat(strfa);
-				output.setText(null);
-				output.append("The result is " + sqrt.sqrtFloat(e));
+				c = Double.parseDouble(strda);
+				double res = sqrt.sqrtDouble(c);
+				String sres = Double.toString(res);
+				int ind = sres.indexOf(".");
+				if (sres.substring(ind + 1).equals("0")) {
+					res = Double.parseDouble(sres);
+					output.setText(null);
+					output.append("The result is " + (int) res);
+				} else {
+					res = Double.parseDouble(sres);
+					output.setText(null);
+					output.append("The result is " + res);
+				}
 			} catch (NumberFormatException e) {
 				output.setText(null);
-				output.append("The application found a " + e);
+				output.append("The application found the exception " + e);
+			}
+		};
+		ActionListener ap = ae -> {
+			strfa = sqrtt.getText();
+			try {
+				e = Float.parseFloat(strfa);
+				float res = sqrt.sqrtFloat(e);
+				String sres = Float.toString(res);
+				int ind = sres.indexOf(".");
+				if (sres.substring(ind + 1).equals("0")) {
+					res = Float.parseFloat(sres);
+					output.setText(null);
+					output.append("The result is " + (int) res);
+				} else {
+					res = Float.parseFloat(sres);
+					output.setText(null);
+					output.append("The result is " + res);
+				}
+			} catch (NumberFormatException e) {
+				output.setText(null);
+				output.append("The application found the exception " + e);
+			}
+		};
+		sqrtd.addActionListener(full);
+
+		Choice dec = new Choice();
+		dec.add("Exact");
+		dec.add("Approximated");
+		dec.addItemListener(l -> {
+			if (dec.getSelectedItem().equals("Approximated")) {
+				sqrtd.removeActionListener(full);
+				sqrtd.addActionListener(ap);
+			} else {
+				sqrtd.removeActionListener(ap);
+				sqrtd.addActionListener(full);
 			}
 		});
-		psqrtf.add(sqrtf);
+		psqrtd.add(dec);
 		
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(psqrt, BorderLayout.NORTH);
 		getContentPane().add(psqrtd, BorderLayout.CENTER);
-		getContentPane().add(psqrtf, BorderLayout.SOUTH);
 	}
 
 	public static class SqrtManagerES extends JFrame {
@@ -194,28 +234,67 @@ public class SqrtManager extends JFrame {
 			});
 			psqrtd.add(sqrtd);
 
-			JPanel psqrtf = new JPanel();
-			psqrtf.setBorder(BorderFactory.createTitledBorder("Square Root of Decimal Numbers"));
-			JTextField sqrtft = new JTextField(15);
-			psqrtf.add(sqrtft);
-			JButton sqrtf = new JButton("Raíz Cuadrada");
-			sqrtf.addActionListener(ae -> {
-				strfa = sqrtft.getText();
+			ActionListener full = ae -> {
+				strda = sqrtt.getText();
 				try {
-					e = Float.parseFloat(strfa);
-					output.setText(null);
-					output.append("El resultado es " + sqrt.sqrtFloat(e));
+					c = Double.parseDouble(strda);
+					double res = sqrt.sqrtDouble(c);
+					String sres = Double.toString(res);
+					int ind = sres.indexOf(".");
+					if (sres.substring(ind + 1).equals("0")) {
+						res = Double.parseDouble(sres);
+						output.setText(null);
+						output.append("El resultado es " + (int) res);
+					} else {
+						res = Double.parseDouble(sres);
+						output.setText(null);
+						output.append("El resultado es " + res);
+					}
 				} catch (NumberFormatException e) {
 					output.setText(null);
-					output.append("La aplicación encontró una " + e);
+					output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
+				}
+			};
+			ActionListener ap = ae -> {
+				strfa = sqrtt.getText();
+				try {
+					e = Float.parseFloat(strfa);
+					float res = sqrt.sqrtFloat(e);
+					String sres = Float.toString(res);
+					int ind = sres.indexOf(".");
+					if (sres.substring(ind + 1).equals("0")) {
+						res = Float.parseFloat(sres);
+						output.setText(null);
+						output.append("El resultado es " + (int) res);
+					} else {
+						res = Float.parseFloat(sres);
+						output.setText(null);
+						output.append("El resultado es " + res);
+					}
+				} catch (NumberFormatException e) {
+					output.setText(null);
+					output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
+				}
+			};
+			sqrtd.addActionListener(full);
+
+			Choice dec = new Choice();
+			dec.add("Exacto");
+			dec.add("Aproximado");
+			dec.addItemListener(l -> {
+				if (dec.getSelectedItem().equals("Approximado")) {
+					sqrtd.removeActionListener(full);
+					sqrtd.addActionListener(ap);
+				} else {
+					sqrtd.removeActionListener(ap);
+					sqrtd.addActionListener(full);
 				}
 			});
-			psqrtf.add(sqrtf);
+			psqrtd.add(dec);
 
 			getContentPane().setLayout(new BorderLayout());
 			getContentPane().add(psqrt, BorderLayout.NORTH);
 			getContentPane().add(psqrtd, BorderLayout.CENTER);
-			getContentPane().add(psqrtf, BorderLayout.SOUTH);
 		}
 	}
 }

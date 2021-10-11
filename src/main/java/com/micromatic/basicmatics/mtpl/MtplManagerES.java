@@ -5,6 +5,7 @@ import com.micromatic.basicmatics.Ops;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -88,46 +89,72 @@ public class MtplManagerES extends JFrame {
         multipld.add(mtlpda);
         multipld.add(mtlpdb);
         JButton mtlpd = new JButton("Multiplicar");
-        mtlpd.addActionListener(e -> {
+        multipld.add(mtlpd);
+
+        ActionListener full = ae -> {
             strda = mtlpda.getText();
             strdb = mtlpdb.getText();
             try {
                 c = Double.parseDouble(strda);
                 d = Double.parseDouble(strdb);
+                double res = mtpl.mtplDouble(c, d);
+                String sres = Double.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
                 output.setText(null);
-                output.append("El resultado es " + mtpl.mtplDouble(c, d));
-            } catch (NumberFormatException a) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n se eencontr\u00F3 con una " + a);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
             }
-        });
-        multipld.add(mtlpd);
-
-        JPanel multiplf = new JPanel();
-        multiplf.setBorder(BorderFactory.createTitledBorder("Multiplicar N\u00FAmeros Float"));
-        JTextField mtlpfa = new JTextField(15);
-        JTextField mtlpfb = new JTextField(15);
-        multiplf.add(mtlpfa);
-        multiplf.add(mtlpfb);
-        JButton mtlpf = new JButton("Multiplicar");
-        mtlpf.addActionListener(ae -> {
-            strfa = mtlpfa.getText();
-            strfb = mtlpfb.getText();
+        };
+        ActionListener ap = ae -> {
+            strfa = mtlpda.getText();
+            strfb = mtlpdb.getText();
             try {
                 e = Float.parseFloat(strfa);
                 f = Float.parseFloat(strfb);
+                float res = mtpl.mtplFloat(e, f);
+                String sres = Float.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
                 output.setText(null);
-                output.append("El resultado es " + mtpl.mtplFloat(e, f));
-            } catch (NumberFormatException a) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n se encontr\u00F3 con una " + a);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
+            }
+        };
+        mtlpd.addActionListener(full);
+
+        Choice dec = new Choice();
+        dec.add("Exacto");
+        dec.add("Aproximado");
+        dec.addItemListener(l -> {
+            if (dec.getSelectedItem().equals("Approximado")) {
+                mtlpd.removeActionListener(full);
+                mtlpd.addActionListener(ap);
+            } else {
+                mtlpd.removeActionListener(ap);
+                mtlpd.addActionListener(full);
             }
         });
-        multiplf.add(mtlpf);
+        multipld.add(dec);
 
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(multipl, BorderLayout.NORTH);
         getContentPane().add(multipld, BorderLayout.CENTER);
-        getContentPane().add(multiplf, BorderLayout.SOUTH);
     }
 }
