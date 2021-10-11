@@ -25,5 +25,5 @@ Actualmente hay un bug que no cierra correctamente las pestañas. Será solucion
 1. Pronto publicaré la primera beta de la versión para Android
 2. Estoy pensando en subirlo a Maven para que sus archivos sean utilizables para otras personas
 3. Se admiten pull requests
-4. Este proyecto está protegido con la GPL v3.0
+4. Este proyecto está protegido con la AGPL v3.0
 5. Los detalles sobre el código se encuentran en las targetas al comienzo de este README.
