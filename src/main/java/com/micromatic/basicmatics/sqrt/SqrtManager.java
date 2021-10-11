@@ -13,12 +13,10 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class SqrtManager extends JFrame {
-	
-	private static int a;
+
 	private static double c;
 	private static float e;
-	
-	private static String stra;
+
 	private static String strda;
 	private static String strfa;
 	
@@ -61,25 +59,7 @@ public class SqrtManager extends JFrame {
 		output.setEditable(false);
 		console.add(output);
 		menuBar.add(console);
-		
-		JPanel psqrt = new JPanel();
-		psqrt.setBorder(BorderFactory.createTitledBorder("Square Root of Integer Numbers"));
-		JTextField sqrtt = new JTextField(15);
-		psqrt.add(sqrtt);
-		JButton bsqrt = new JButton("Square Root");
-		bsqrt.addActionListener(ae -> {
-			stra = sqrtt.getText();
-			try {
-				a = Integer.parseInt(stra);
-				output.setText(null);
-				output.append("The result is " + sqrt.sqrt(a));
-			} catch (NumberFormatException e) {
-				output.setText(null);
-				output.append("The application found a " + e);
-			}
-		});
-		psqrt.add(bsqrt);
-		
+
 		JPanel psqrtd = new JPanel();
 		psqrtd.setBorder(BorderFactory.createTitledBorder("Square Root of Double Numbers"));
 		JTextField sqrtdt = new JTextField(15);
@@ -99,7 +79,7 @@ public class SqrtManager extends JFrame {
 		psqrtd.add(sqrtd);
 
 		ActionListener full = ae -> {
-			strda = sqrtt.getText();
+			strda = sqrtdt.getText();
 			try {
 				c = Double.parseDouble(strda);
 				double res = sqrt.sqrtDouble(c);
@@ -120,7 +100,7 @@ public class SqrtManager extends JFrame {
 			}
 		};
 		ActionListener ap = ae -> {
-			strfa = sqrtt.getText();
+			strfa = sqrtdt.getText();
 			try {
 				e = Float.parseFloat(strfa);
 				float res = sqrt.sqrtFloat(e);
@@ -157,7 +137,6 @@ public class SqrtManager extends JFrame {
 		psqrtd.add(dec);
 		
 		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(psqrt, BorderLayout.NORTH);
 		getContentPane().add(psqrtd, BorderLayout.CENTER);
 	}
 
@@ -198,24 +177,6 @@ public class SqrtManager extends JFrame {
 			console.add(output);
 			menuBar.add(console);
 
-			JPanel psqrt = new JPanel();
-			psqrt.setBorder(BorderFactory.createTitledBorder("Raíces cuadradas de Enteros "));
-			JTextField sqrtt = new JTextField(15);
-			psqrt.add(sqrtt);
-			JButton bsqrt = new JButton("Raíz Cuadrada");
-			bsqrt.addActionListener(ae -> {
-				stra = sqrtt.getText();
-				try {
-					a = Integer.parseInt(stra);
-					output.setText(null);
-					output.append("El resultado es " + sqrt.sqrt(a));
-				} catch (NumberFormatException e) {
-					output.setText(null);
-					output.append("La aplicación encontró una " + e);
-				}
-			});
-			psqrt.add(bsqrt);
-
 			JPanel psqrtd = new JPanel();
 			psqrtd.setBorder(BorderFactory.createTitledBorder("Square Root of Double Numbers"));
 			JTextField sqrtdt = new JTextField(15);
@@ -235,7 +196,7 @@ public class SqrtManager extends JFrame {
 			psqrtd.add(sqrtd);
 
 			ActionListener full = ae -> {
-				strda = sqrtt.getText();
+				strda = sqrtdt.getText();
 				try {
 					c = Double.parseDouble(strda);
 					double res = sqrt.sqrtDouble(c);
@@ -256,7 +217,7 @@ public class SqrtManager extends JFrame {
 				}
 			};
 			ActionListener ap = ae -> {
-				strfa = sqrtt.getText();
+				strfa = sqrtdt.getText();
 				try {
 					e = Float.parseFloat(strfa);
 					float res = sqrt.sqrtFloat(e);
@@ -293,7 +254,6 @@ public class SqrtManager extends JFrame {
 			psqrtd.add(dec);
 
 			getContentPane().setLayout(new BorderLayout());
-			getContentPane().add(psqrt, BorderLayout.NORTH);
 			getContentPane().add(psqrtd, BorderLayout.CENTER);
 		}
 	}

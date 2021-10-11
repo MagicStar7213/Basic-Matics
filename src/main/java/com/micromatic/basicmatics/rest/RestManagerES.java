@@ -14,11 +14,9 @@ import java.util.ArrayList;
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class RestManagerES extends JFrame {
 
-    private static int a, b;
     private static double c, d;
     private static float e, f;
 
-    private static String stra, strb;
     private static String strda, strdb;
     private static String strfa, strfb;
 
@@ -61,28 +59,6 @@ public class RestManagerES extends JFrame {
         console.add(output);
         menuBar.add(console);
 
-        JPanel resi = new JPanel();
-        resi.setBorder(BorderFactory.createTitledBorder("Restar"));
-        JTextField rsta = new JTextField(15);
-        JTextField rstb = new JTextField(15);
-        resi.add(rsta);
-        resi.add(rstb);
-        JButton rst = new JButton("Restar");
-        rst.addActionListener(e -> {
-            stra = rsta.getText();
-            strb = rstb.getText();
-            try {
-                a = Integer.parseInt(stra);
-                b = Integer.parseInt(strb);
-                output.setText(null);
-                output.append("El resultado es" + rest.rest(a, b));
-            } catch (NumberFormatException a) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n encontr\u00F3 una " + a);
-            }
-        });
-        resi.add(rst);
-
         JPanel resd = new JPanel();
         resd.setBorder(BorderFactory.createTitledBorder("Restar N\u00FAmeros Decimales"));
         JTextField rstda = new JTextField(15);
@@ -91,8 +67,8 @@ public class RestManagerES extends JFrame {
         resd.add(rstdb);
         JButton rstd = new JButton("Restar");
         rstd.addActionListener(e -> {
-            strda = rsta.getText();
-            strdb = rstb.getText();
+            strda = rstda.getText();
+            strdb = rstdb.getText();
             try {
                 c = Double.parseDouble(strda);
                 d = Double.parseDouble(strdb);
@@ -168,7 +144,6 @@ public class RestManagerES extends JFrame {
         resd.add(dec);
 
         getContentPane().setLayout(new BorderLayout());
-        getContentPane().add(resi, BorderLayout.NORTH);
         getContentPane().add(resd, BorderLayout.CENTER);
     }
 }

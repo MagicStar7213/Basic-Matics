@@ -61,35 +61,13 @@ public class PotenceManager extends JFrame {
 		output.setEditable(false);
 		console.add(output);
 		menuBar.add(console);
-		
-		JPanel pptnc = new JPanel();
-		pptnc.setBorder(BorderFactory.createTitledBorder("Potences with Integer Numbers"));
-		JTextField baset = new JTextField(15);
-		JTextField expt = new JTextField(15);
-		pptnc.add(baset);
-		pptnc.add(expt);
-		JButton bptnc = new JButton("Potence");
-		bptnc.addActionListener(ae -> {
-			stra = baset.getText();
-			strb = expt.getText();
-			try {
-				base = Integer.parseInt(stra);
-				exp = Integer.parseInt(strb);
-				output.setText(null);
-				output.append("The result is " + ptnc.ptnc(base, exp));
-			} catch (NumberFormatException e) {
-				output.setText(null);
-				output.append("The application has encountered a " + e);
-			}
-		});
-		pptnc.add(bptnc);
-		
+
 		JPanel pptncd = new JPanel();
 		pptncd.setBorder(BorderFactory.createTitledBorder("Potences with Decimal Numbers"));
 		JTextField basetd = new JTextField(15);
 		JTextField exptd = new JTextField(15);
-		pptnc.add(basetd);
-		pptnc.add(exptd);
+		pptncd.add(basetd);
+		pptncd.add(exptd);
 		JButton bptncd = new JButton("Potence");
 		bptncd.addActionListener(ae -> {
 			strda = basetd.getText();
@@ -169,7 +147,6 @@ public class PotenceManager extends JFrame {
 		pptncd.add(dec);
 		
 		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(pptnc, BorderLayout.NORTH);
 		getContentPane().add(pptncd, BorderLayout.CENTER);
 	}
 
@@ -210,34 +187,12 @@ public class PotenceManager extends JFrame {
 			console.add(output);
 			menuBar.add(console);
 
-			JPanel pptnc = new JPanel();
-			pptnc.setBorder(BorderFactory.createTitledBorder("Potencias con Números Enteros"));
-			JTextField baset = new JTextField(15);
-			JTextField expt = new JTextField(15);
-			pptnc.add(baset);
-			pptnc.add(expt);
-			JButton bptnc = new JButton("Potencia");
-			bptnc.addActionListener(ae -> {
-				stra = baset.getText();
-				strb = expt.getText();
-				try {
-					base = Integer.parseInt(stra);
-					exp = Integer.parseInt(strb);
-					output.setText(null);
-					output.append("El resultado es " + ptnc.ptnc(base, exp));
-				} catch (NumberFormatException e) {
-					output.setText(null);
-					output.append("La aplicación encontró una " + e);
-				}
-			});
-			pptnc.add(bptnc);
-
 			JPanel pptncd = new JPanel();
 			pptncd.setBorder(BorderFactory.createTitledBorder("Potencias con Números Decimales"));
 			JTextField basetd = new JTextField(15);
 			JTextField exptd = new JTextField(15);
-			pptnc.add(basetd);
-			pptnc.add(exptd);
+			pptncd.add(basetd);
+			pptncd.add(exptd);
 			JButton bptncd = new JButton("Potencia");
 			bptncd.addActionListener(ae -> {
 				strda = basetd.getText();
@@ -254,32 +209,8 @@ public class PotenceManager extends JFrame {
 			});
 			pptncd.add(bptncd);
 
-			JPanel pptncf = new JPanel();
-			pptncf.setBorder(BorderFactory.createTitledBorder("Potencias con Números Float"));
-			JTextField basetf = new JTextField(15);
-			JTextField exptf = new JTextField(15);
-			pptnc.add(basetf);
-			pptnc.add(exptf);
-			JButton bptncf = new JButton("Potencia");
-			bptncf.addActionListener(ae -> {
-				strfa = basetf.getText();
-				strfb = exptf.getText();
-				try {
-					fbase = Float.parseFloat(strfa);
-					fexp = Float.parseFloat(strfb);
-					output.setText(null);
-					output.append("El resultado es " + ptnc.ptncFloat(fbase, fexp));
-				} catch (NumberFormatException e) {
-					output.setText(null);
-					output.append("La aplicación encontró una " + e);
-				}
-			});
-			pptncf.add(bptncf);
-
 			getContentPane().setLayout(new BorderLayout());
-			getContentPane().add(pptnc, BorderLayout.NORTH);
 			getContentPane().add(pptncd, BorderLayout.CENTER);
-			getContentPane().add(pptncf, BorderLayout.SOUTH);
 		}
 	}
 }

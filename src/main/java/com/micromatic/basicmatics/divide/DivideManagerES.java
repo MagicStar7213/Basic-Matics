@@ -60,28 +60,6 @@ public class DivideManagerES extends JFrame {
         console.add(output);
         menuBar.add(console);
 
-        JPanel divide = new JPanel();
-        divide.setBorder(BorderFactory.createTitledBorder(dv));
-        JTextField diva = new JTextField(15);
-        JTextField divb = new JTextField(15);
-        divide.add(diva);
-        divide.add(divb);
-        JButton div = new JButton(dv);
-        div.addActionListener(ae -> {
-            stra = diva.getText();
-            strb = divb.getText();
-            try {
-                a = Integer.parseInt(stra);
-                b = Integer.parseInt(strb);
-                output.setText(null);
-                output.append("El resultado es " + dvd.divide(a, b));
-            } catch (NumberFormatException nfe) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n se encontr\u00F3 con el problema " + nfe);
-            }
-        });
-        divide.add(div);
-
         JPanel divided = new JPanel();
         divided.setBorder(BorderFactory.createTitledBorder("Dividir N\u00FAmeros Decimales"));
         JTextField divda = new JTextField(15);
@@ -154,7 +132,6 @@ public class DivideManagerES extends JFrame {
         divided.add(dec);
 
         getContentPane().setLayout(new BorderLayout());
-        getContentPane().add(divide, BorderLayout.NORTH);
         getContentPane().add(divided, BorderLayout.CENTER);
     }
 }

@@ -61,29 +61,7 @@ public class MtplManager extends JFrame {
 		output.setEditable(false);
 		console.add(output);
 		menuBar.add(console);
-		
-		JPanel multipl = new JPanel();
-		multipl.setBorder(BorderFactory.createTitledBorder("Multiply"));
-		JTextField mtlpa = new JTextField(15);
-		JTextField mtlpb = new JTextField(15);
-		multipl.add(mtlpa);
-		multipl.add(mtlpb);
-		JButton mtlp = new JButton("Multiply");
-		mtlp.addActionListener(e -> {
-			stra = mtlpa.getText();
-			strb = mtlpb.getText();
-			try {
-				a = Integer.parseInt(stra);
-				b = Integer.parseInt(strb);
-				output.setText(null);
-				output.append("The result is " + mtpl.mtpl(a, b));
-			} catch (NumberFormatException a) {
-				output.setText(null);
-				output.append("The application has encountered " + a);
-			}
-		});
-		multipl.add(mtlp);
-		
+
 		JPanel multipld = new JPanel();
 		multipld.setBorder(BorderFactory.createTitledBorder("Multiply Decimal Numbers"));
 		JTextField mtlpda = new JTextField(15);
@@ -156,7 +134,6 @@ public class MtplManager extends JFrame {
 		multipld.add(dec);
 		
 		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(multipl, BorderLayout.NORTH);
 		getContentPane().add(multipld, BorderLayout.CENTER);
 	}
 }

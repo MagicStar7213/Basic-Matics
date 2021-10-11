@@ -60,28 +60,6 @@ public class MtplManagerES extends JFrame {
         console.add(output);
         menuBar.add(console);
 
-        JPanel multipl = new JPanel();
-        multipl.setBorder(BorderFactory.createTitledBorder("Multiplicar"));
-        JTextField mtlpa = new JTextField(15);
-        JTextField mtlpb = new JTextField(15);
-        multipl.add(mtlpa);
-        multipl.add(mtlpb);
-        JButton mtlp = new JButton("Multiplicar");
-        mtlp.addActionListener(e -> {
-            stra = mtlpa.getText();
-            strb = mtlpb.getText();
-            try {
-                a = Integer.parseInt(stra);
-                b = Integer.parseInt(strb);
-                output.setText(null);
-                output.append("El resultado es " + mtpl.mtpl(a, b));
-            } catch (NumberFormatException a) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n se eencontr\u00F3 con una " + a);
-            }
-        });
-        multipl.add(mtlp);
-
         JPanel multipld = new JPanel();
         multipld.setBorder(BorderFactory.createTitledBorder("Multiplicar N\u00FAmeros Decimales"));
         JTextField mtlpda = new JTextField(15);
@@ -154,7 +132,6 @@ public class MtplManagerES extends JFrame {
         multipld.add(dec);
 
         getContentPane().setLayout(new BorderLayout());
-        getContentPane().add(multipl, BorderLayout.NORTH);
         getContentPane().add(multipld, BorderLayout.CENTER);
     }
 }

@@ -15,8 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class BasicMatics extends JFrame {
-	
-	private static final BasicMatics bsm = new BasicMatics();
+	static final BasicMatics bsm = new BasicMatics();
 	
 	private static final DivideGManager dvdm = new DivideGManager();
 	private static final MtplManager mtpl = new MtplManager();
