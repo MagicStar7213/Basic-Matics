@@ -63,7 +63,6 @@ public class DivideManager extends JFrame {
 		menuBar.add(console);
 
 		JPanel divided = new JPanel();
-		divided.setBorder(BorderFactory.createTitledBorder("Divide Decimal Numbers"));
 		JTextField divda = new JTextField(15);
 		JTextField divdb = new JTextField(15);
 		divided.add(divda);

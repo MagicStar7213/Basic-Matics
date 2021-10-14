@@ -60,7 +60,6 @@ public class SumeManagerES extends JFrame {
         console.add(output);
 
         JPanel sumedP = new JPanel();
-        sumedP.setBorder(BorderFactory.createTitledBorder("Sumar N\u00FAmeros Decimales"));
         JTextField sumeda = new JTextField(15);
         JTextField sumedb = new JTextField(15);
         sumedP.add(sumeda);

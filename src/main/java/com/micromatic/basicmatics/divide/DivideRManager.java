@@ -61,31 +61,8 @@ public class DivideRManager extends JFrame {
 		output.setEditable(false);
 		console.add(output);
 		menuBar.add(console);
-		
-		JPanel divideR = new JPanel();
-		divideR.setBorder(BorderFactory.createTitledBorder("Division Rest"));
-		JTextField divra = new JTextField(15);
-		JTextField divrb = new JTextField(15);
-		divideR.add(divra);
-		divideR.add(divrb);
-		JButton divr = new JButton("Division Rest");
-		divr.addActionListener(e -> {
-			stra = divra.getText();
-			strb = divrb.getText();
-			try {
-				a = Integer.parseInt(stra);
-				b = Integer.parseInt(strb);
-				output.setText(null);
-				output.append("The rest of the division is " + dvd.divisionRest(a, b));
-			} catch (NumberFormatException a) {
-				output.setText(null);
-				output.append("The application has encountered a " + a);
-			}
-		});
-		divideR.add(divr);
-		
+
 		JPanel dividedR = new JPanel();
-		dividedR.setBorder(BorderFactory.createTitledBorder("Decimal Division Rest"));
 		JTextField divdra = new JTextField(15);
 		JTextField divdrb = new JTextField(15);
 		dividedR.add(divdra);
@@ -129,7 +106,6 @@ public class DivideRManager extends JFrame {
 		dividefR.add(divfr);
 		
 		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(divideR, BorderLayout.NORTH);
 		getContentPane().add(dividedR, BorderLayout.CENTER);
 		getContentPane().add(dividefR, BorderLayout.SOUTH);
 	}
