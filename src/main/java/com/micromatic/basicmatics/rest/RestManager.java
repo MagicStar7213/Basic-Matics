@@ -63,7 +63,6 @@ public class RestManager extends JFrame {
 		menuBar.add(console);
 
 		JPanel resd = new JPanel();
-		resd.setBorder(BorderFactory.createTitledBorder("Rest Decimal Numbers"));
 		JTextField rstda = new JTextField(15);
 		JTextField rstdb = new JTextField(15);
 		resd.add(rstda);

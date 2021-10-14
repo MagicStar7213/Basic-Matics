@@ -60,7 +60,6 @@ public class RestManagerES extends JFrame {
         menuBar.add(console);
 
         JPanel resd = new JPanel();
-        resd.setBorder(BorderFactory.createTitledBorder("Restar N\u00FAmeros Decimales"));
         JTextField rstda = new JTextField(15);
         JTextField rstdb = new JTextField(15);
         resd.add(rstda);

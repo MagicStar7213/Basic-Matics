@@ -61,7 +61,6 @@ public class SqrtManager extends JFrame {
 		menuBar.add(console);
 
 		JPanel psqrtd = new JPanel();
-		psqrtd.setBorder(BorderFactory.createTitledBorder("Square Root of Double Numbers"));
 		JTextField sqrtdt = new JTextField(15);
 		psqrtd.add(sqrtdt);
 		JButton sqrtd = new JButton("Square Root");
@@ -178,7 +177,6 @@ public class SqrtManager extends JFrame {
 			menuBar.add(console);
 
 			JPanel psqrtd = new JPanel();
-			psqrtd.setBorder(BorderFactory.createTitledBorder("Square Root of Double Numbers"));
 			JTextField sqrtdt = new JTextField(15);
 			psqrtd.add(sqrtdt);
 			JButton sqrtd = new JButton("Raíz Cuadrada");

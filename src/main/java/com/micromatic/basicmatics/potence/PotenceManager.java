@@ -63,7 +63,6 @@ public class PotenceManager extends JFrame {
 		menuBar.add(console);
 
 		JPanel pptncd = new JPanel();
-		pptncd.setBorder(BorderFactory.createTitledBorder("Potences with Decimal Numbers"));
 		JTextField basetd = new JTextField(15);
 		JTextField exptd = new JTextField(15);
 		pptncd.add(basetd);
@@ -188,7 +187,6 @@ public class PotenceManager extends JFrame {
 			menuBar.add(console);
 
 			JPanel pptncd = new JPanel();
-			pptncd.setBorder(BorderFactory.createTitledBorder("Potencias con Números Decimales"));
 			JTextField basetd = new JTextField(15);
 			JTextField exptd = new JTextField(15);
 			pptncd.add(basetd);

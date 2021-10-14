@@ -63,30 +63,7 @@ public class DivideRManagerES extends JFrame {
         console.add(output);
         menuBar.add(console);
 
-        JPanel divideR = new JPanel();
-        divideR.setBorder(BorderFactory.createTitledBorder("Resto de Divisi\u00F3n"));
-        JTextField divra = new JTextField(15);
-        JTextField divrb = new JTextField(15);
-        divideR.add(divra);
-        divideR.add(divrb);
-        JButton divr = new JButton(dvr);
-        divr.addActionListener(e -> {
-            stra = divra.getText();
-            strb = divrb.getText();
-            try {
-                a = Integer.parseInt(stra);
-                b = Integer.parseInt(strb);
-                output.setText(null);
-                output.append("El resto de la divisi\u00F3n es " + dvd.divisionRest(a, b));
-            } catch (NumberFormatException a) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n encontr\u00F3 una" + a);
-            }
-        });
-        divideR.add(divr);
-
         JPanel dividedR = new JPanel();
-        dividedR.setBorder(BorderFactory.createTitledBorder("Resto de Divisi\u00F3n Decimal"));
         JTextField divdra = new JTextField(15);
         JTextField divdrb = new JTextField(15);
         dividedR.add(divdra);
@@ -157,7 +134,6 @@ public class DivideRManagerES extends JFrame {
         dividedR.add(dec);
 
         getContentPane().setLayout(new BorderLayout());
-        getContentPane().add(divideR, BorderLayout.NORTH);
         getContentPane().add(dividedR, BorderLayout.CENTER);
     }
 }

@@ -63,7 +63,6 @@ SumeManager extends JFrame {
 		console.add(output);
 
 		JPanel sumedP = new JPanel();
-		sumedP.setBorder(BorderFactory.createTitledBorder("Sume Decimal Numbers"));
 		JTextField sumeda = new JTextField(15);
 		JTextField sumedb = new JTextField(15);
 		sumedP.add(sumeda);

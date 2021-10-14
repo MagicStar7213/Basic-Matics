@@ -61,7 +61,6 @@ public class MtplManagerES extends JFrame {
         menuBar.add(console);
 
         JPanel multipld = new JPanel();
-        multipld.setBorder(BorderFactory.createTitledBorder("Multiplicar N\u00FAmeros Decimales"));
         JTextField mtlpda = new JTextField(15);
         JTextField mtlpdb = new JTextField(15);
         multipld.add(mtlpda);
