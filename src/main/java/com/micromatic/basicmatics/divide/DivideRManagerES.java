@@ -5,6 +5,7 @@ import com.micromatic.basicmatics.Ops;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -68,45 +69,71 @@ public class DivideRManagerES extends JFrame {
         dividedR.add(divdra);
         dividedR.add(divdrb);
         JButton divdr = new JButton(dvr);
-        divdr.addActionListener(e -> {
+        dividedR.add(divdr);
+
+        ActionListener full = ae -> {
             strda = divdra.getText();
             strdb = divdrb.getText();
             try {
                 c = Double.parseDouble(strda);
                 d = Double.parseDouble(strdb);
+                double res = dvd.divideDouble(c, d);
+                String sres = Double.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Double.parseDouble(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
                 output.setText(null);
-                output.append("El resto de la divisi\u00F3n es " + dvd.divisionDoubleRest(c, d));
-            } catch (NumberFormatException a) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n encontr\u00F3 una" + a);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
             }
-        });
-        dividedR.add(divdr);
-
-        JPanel dividefR = new JPanel();
-        dividefR.setBorder(BorderFactory.createTitledBorder("Resto de Divisi\u00F3n Float"));
-        JTextField divfra = new JTextField(15);
-        JTextField divfrb = new JTextField(15);
-        dividefR.add(divfra);
-        dividefR.add(divfrb);
-        JButton divfr = new JButton(dvr);
-        divfr.addActionListener(ae -> {
-            strfa = divfra.getText();
-            strfb = divfrb.getText();
+        };
+        ActionListener ap = ae -> {
+            strfa = divdra.getText();
+            strfb = divdrb.getText();
             try {
                 e = Float.parseFloat(strfa);
                 f = Float.parseFloat(strfb);
+                float res = dvd.divideFloat(e, f);
+                String sres = Float.toString(res);
+                int ind = sres.indexOf(".");
+                if (sres.substring(ind + 1).equals("0")) {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + (int) res);
+                } else {
+                    res = Float.parseFloat(sres);
+                    output.setText(null);
+                    output.append("El resultado es " + res);
+                }
+            } catch (NumberFormatException e) {
                 output.setText(null);
-                output.append("El resto de la divisi\u00F3n es " + dvd.divisionFloatRest(e, f));
-            } catch (NumberFormatException a) {
-                output.setText(null);
-                output.append("La aplicaci\u00F3n encontr\u00F3 una" + a);
+                output.append("La aplicaci\u00f3n encontr\u00f3 una " + e);
+            }
+        };
+        divdr.addActionListener(full);
+
+        Choice dec = new Choice();
+        dec.add("Exacto");
+        dec.add("Aproximado");
+        dec.addItemListener(l -> {
+            if (dec.getSelectedItem().equals("Approximado")) {
+                divdr.removeActionListener(full);
+                divdr.addActionListener(ap);
+            } else {
+                divdr.removeActionListener(ap);
+                divdr.addActionListener(full);
             }
         });
-        dividefR.add(divfr);
+        dividedR.add(dec);
 
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(dividedR, BorderLayout.CENTER);
-        getContentPane().add(dividefR, BorderLayout.SOUTH);
     }
 }
