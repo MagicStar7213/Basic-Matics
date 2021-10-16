@@ -2,8 +2,8 @@ plugins {
     id 'java'
 }
 
-group 'com.micromatic'
-version '1.0-beta1'
+group 'com.micromatic.basicmatics'
+version 'Beta 1.1'
 
 repositories {
     mavenCentral()
