@@ -1,11 +1,15 @@
 # ![Logo](/src/main/resources/BSM-Official64.png)Basic-Matics #
-![Java](https://img.shields.io/badge/Java-17-%230375A6?style=flat&logo=java)
-![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-2021.2.2-blueviolet?style=flat&logo=intellijidea)
-![Gradle](https://img.shields.io/badge/Gradle-7.2-blue?style=flat&logo=gradle)
+![Java](https://img.shields.io/badge/Java-17.0.1-grey?style=flat&logo=java&labelColor=009ab5)
+![Eclipse](https://img.shields.io/badge/Eclipse-2021_09-grey?style=flat&logo=eclipse&labelColor=blueviolet)
+![Gradle](https://img.shields.io/badge/Gradle-7.3-grey?style=flat&logo=gradle&labelColor=blue)
 ![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat)
 ![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics)
 
+[![News](https://img.shields.io/badge/NOTICIAS-1-00d8ff?style=social&logo=googlenews&logoColor=black)](https://github.com/MagicStar7213/Basic-Matics/blob/dev/NEWS.md)
+
 ¡Hola! Bienvenido a mi primera aplicación, **Basic Matics**. Llevo algunos meses desarrollando esta primera versión, y por fin esta correcta.
+
+Para ver las noticias sobre el desarrollo de esta, haz click en la imagen en la que pone Noticias.
 
 ## 1. De qué trata? ##
 Pues esta aplicación es una simple calculadora a la que le iré añadiendo diversas funciones a lo largo de los meses y/o años. Por ahora, solo es capaz de dividir, multiplicar,
