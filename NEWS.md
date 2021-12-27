@@ -1,4 +1,4 @@
-# ![Logo](icons/bsm.png)Basic-Matics Noticias #
+# :newspaper:Basic-Matics Noticias #
 
 Aquí publicaré nuevas noticias por ahora. Pronto iniciaré en GitHub Pages y las noticias se colgarán ahí.
 
