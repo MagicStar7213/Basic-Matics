@@ -3,15 +3,20 @@ package com.micromatic.basicmatics.settings;
 import java.io.*;
 import java.util.*;
 
+/**Properties file loader*/
 public class BSMProperties {
+	/**References to the properties file*/
 	public File file = new File(System.getProperty("user.home")+"/AppData/Local/Temp/bsm.properties");
+	/**Allows to access the file*/
 	public FileInputStream in;
+	/**Allows to write the file*/
 	public FileOutputStream out;
+	/**Properties loading*/
 	public Properties props = new Properties();
 	
 	/**
 	 * Creates the file
-	 * @throws IOException
+	 * @throws IOException when it can't create the file
 	 */
 	public void create() throws IOException {
 		file.createNewFile();
@@ -19,7 +24,7 @@ public class BSMProperties {
 	
 	/**
 	 * 
-	 * @param key
+	 * @param key the key to check
 	 * @return flase if the key doesn't exist and true if it exists
 	 */
 	public boolean existsKey(String key) {
@@ -48,7 +53,7 @@ public class BSMProperties {
 	
 	/**
 	 * It sets the new property for aprox
-	 * @param key
+	 * @param key the value of the key
 	 */
 	public void setAprox(String key)  {
 		try {
@@ -88,7 +93,7 @@ public class BSMProperties {
 	
 	/**
 	 * It sets the language in the properties file
-	 * @param key
+	 * @param key the language to use
 	 */
 	public void setLang(String key)  {
 		try {
@@ -111,7 +116,11 @@ public class BSMProperties {
 			io.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Gets the Operating System on the properties file
+	 * @return the os in the properties file
+	 */
 	public String getOs() {
 		try {
 			in = new FileInputStream(file);
@@ -121,7 +130,11 @@ public class BSMProperties {
 		}
 		return props.getProperty("os");
 	}
-	
+
+	/**
+	 * Sets the os image for use
+	 * @param key the os name
+	 */
 	public void setOs(String key) {
 		try {
 			in = new FileInputStream(file);

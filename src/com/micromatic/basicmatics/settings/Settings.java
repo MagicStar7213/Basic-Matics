@@ -11,25 +11,45 @@ import org.eclipse.swt.graphics.*;
 
 public class Settings {
 
+	/**Settings shell*/
 	public static Shell shell = new Shell(SWT.TITLE | SWT.APPLICATION_MODAL | SWT.CLOSE);
+	/**Settings display*/
 	public Display display = Display.getCurrent();
+	/**Main composite*/
 	private Composite parent = new Composite(shell, SWT.NONE);
+	/**Second Main composite*/
 	private static Composite parent1 = new Composite(shell, SWT.NONE);
+	/**Language combo*/
 	private Combo combo = new Combo(parent, SWT.READ_ONLY);
+	/**Approximation button*/
 	public Button aprox;
+	/**Detects if it is aproximated */
 	public Boolean ap;
+	/**Title composite*/
 	private Composite composite;
+	/**Title image*/
 	private Label prefimg;
+	/**Title*/
 	private Label title;
+	/**Properties class*/
 	public static final BSMProperties props = new BSMProperties();
+	/**Image combo*/
 	public static Combo os_combo = new Combo(parent1, SWT.READ_ONLY);
+	/**Main Class*/
 	private static final BasicMatics bsm = new BasicMatics();
+	/**Text in the language combo*/
 	private Text combo_text;
+	/**Text in the os image combo*/
 	private Text oscombo_text;
+	/**General Title*/
 	private Text general = new Text(parent, SWT.READ_ONLY | SWT.CENTER);
+	/**Customisation*/
 	private Text custom = new Text(parent1, SWT.READ_ONLY | SWT.CENTER);
+	/**Default composite*/
 	private Composite def_comp = new Composite(shell, SWT.NONE);
+	/**Restore Default button*/
 	private Button def = new Button(def_comp, SWT.NONE);
+
 	/**
 	 * Open the window.
 	 */
@@ -53,12 +73,11 @@ public class Settings {
 
 	/**
 	 * Create contents of the window.
-	 * @wbp.parser.entryPoint
 	 */
 	protected void createContents() {
 		shell.setSize(450, 230);
 		shell.setText("Settings");
-		shell.setImage(new Image(display, "icons/@x45/settings.png"));
+		shell.setImage(new Image(display, getClass().getResourceAsStream("icons/@x45/settings.png")));
 		
 		parent.setBounds(10, 71, 177, 90);
 		
@@ -79,39 +98,37 @@ public class Settings {
 					props.props.load(props.in);
 					switch (os_combo.getSelectionIndex()) {
 					case 0 :
-						BasicMatics.label.setImage(new Image(bsm.display, "icons/bsm-windows.png"));
-						BasicMatics.shell.setImage(new Image(bsm.display, "icons/bsm-windows.png"));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-windows.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-windows.png")));
 						props.setOs("windows");
 						break;
 					case 1 :
-						BasicMatics.label.setImage(new Image(bsm.display, "icons/bsm-apple.png"));
-						BasicMatics.shell.setImage(new Image(bsm.display, "icons/bsm-apple.png"));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-apple.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-apple.png")));
 						props.setOs("apple");
 						break;
 					case 2 :
-						BasicMatics.label.setImage(new Image(bsm.display, "icons/bsm-linux.png"));
-						BasicMatics.shell.setImage(new Image(bsm.display, "icons/bsm-linux.png"));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-linux.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-linux.png")));
 						props.setOs("linux");
 						break;
 					case 3 :
-						BasicMatics.label.setImage(new Image(bsm.display, "icons/bsm-debian.png"));
-						BasicMatics.shell.setImage(new Image(bsm.display, "icons/bsm-debian.png"));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-debian.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-debian.png")));
 						props.setOs("debian");
 						break;
 					case 4 :
-						BasicMatics.label.setImage(new Image(bsm.display, "icons/bsm-ubuntu.png"));
-						BasicMatics.shell.setImage(new Image(bsm.display, "icons/bsm-ubuntu.png"));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-ubuntu.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-ubuntu.png")));
 						props.setOs("ubuntu");
 						break;
 					case 5 :
-						BasicMatics.label.setImage(new Image(bsm.display, "icons/bsm.png"));
-						BasicMatics.shell.setImage(new Image(bsm.display, "icons/bsm.png"));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm.png")));
 						props.setOs("bsm");
 						break;
 					}
-				} catch (IOException io) { 
-					
-				}
+				} catch (IOException ignored) {}
 			}
 		});
 		
@@ -162,7 +179,7 @@ public class Settings {
 			else
 				os_combo.select(5);
 		} catch (IOException io) { io.printStackTrace(); }
-		
+
 		if (props.getAprox())
 			aprox.setSelection(true);
 		else
@@ -173,7 +190,7 @@ public class Settings {
 		
 		prefimg = new Label(composite, SWT.NONE);
 		prefimg.setBounds(10, 3, 50, 50);
-		prefimg.setImage(new Image(display, "icons/@x45/settings.png"));
+		prefimg.setImage(new Image(display, getClass().getResourceAsStream("icons/@x45/settings.png")));
 		
 		title = new Label(composite, SWT.CENTER);
 		title.setBounds(63, 18, 77, 27);
@@ -236,7 +253,11 @@ public class Settings {
 			combo.select(0);
 		}
 	}
-	
+
+	/**
+	 * Translates the button to spanish
+	 * @param target the button to change
+	 */
 	public void es(Button target) {
 		if (target != null) {
 			switch (target.getText()) {
@@ -268,7 +289,10 @@ public class Settings {
 		}
 		props.setLang("es");
 	}
-	
+
+	/**
+	 * Translates all to spanish
+	 */
 	private void es() {
 		es(BasicMatics.dvdm);
 		es(BasicMatics.mtplm);
@@ -293,7 +317,11 @@ public class Settings {
 		props.setLang("es");
 		combo.select(1);
 	}
-	
+
+	/**
+	 * Translates to english the selected button
+	 * @param target the button selected
+	 */
 	public void en(Button target) {
 		if (target != null) {
 			switch (target.getText()) {
@@ -325,7 +353,10 @@ public class Settings {
 		}
 		props.setLang("en");
 	}
-	
+
+	/**
+	 * Translates all to english
+	 */
 	private void en() {
 		en(BasicMatics.dvdm);
 		en(BasicMatics.mtplm);
@@ -350,7 +381,12 @@ public class Settings {
 		props.setLang("en");
 		combo.select(0);
 	}
-	
+
+	/**
+	 * Determines the language to use in each button
+	 * @param target the button affected
+	 * @return if @param target == null the language. If not translates the button to the selected language
+	 */
 	public String lang(Button target) {
 		try {
 			if (!props.file.exists()) {

@@ -12,38 +12,58 @@ import java.io.IOException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.*;
 
+/**
+ * The main class
+ */
 public class BasicMatics {
 
+	/**Main shell*/
 	public static Shell shell = new Shell();
+	/**Default display*/
 	public Display display = Display.getDefault();
-	
+
+	/**Main composite*/
 	protected static Composite composite = new Composite(shell, SWT.NONE);
+	/**Goes to the Main Divide Page*/
 	public static Button dvdm = new Button(composite, SWT.FLAT);
+	/**Goes to the Main Multiply Page*/
 	public static Button mtplm = new Button(composite, SWT.FLAT);
+	/**Goes to the Main Subtract Page*/
 	public static Button restm = new Button(composite, SWT.FLAT);
+	/**Goes to the Main Add Up Page*/
 	public static Button sumem = new Button(composite, SWT.FLAT);
+	/**Goes to the Settings Page*/
 	public static Button settings;
+	/**Hosts the main image*/
 	public static Label label = new Label(shell, SWT.NONE);
+	/**Instance ofe Settings*/
 	protected static final Settings set = new Settings();
-	
+
+	/**The composite for the back and home buttons*/
 	protected Composite backcomp = new Composite(shell, SWT.NONE);
+	/**Returns home*/
 	protected Button home = new Button(backcomp, SWT.NONE);
+	/**Goes to the last page*/
 	protected Button back = new Button(backcomp, SWT.NONE);
-	
+
+	/**Button that goes to the divide page*/
 	public static Button bdvd = new Button(composite, SWT.FLAT);
+	/**Button that goes to the division rest page*/
 	public static Button bdvdr = new Button(composite, SWT.FLAT);
+	/**Button that divides*/
 	public static Button dvd = new Button(composite, SWT.FLAT);
+	/**Button that makes the division rest*/
 	public static Button dvdr = new Button(composite, SWT.FLAT);
-		
+	/**Button that multiplies*/
 	public static Button mtpl = new Button(composite, SWT.FLAT);
-		
+	/**Button that subtracts*/
 	public static Button rest = new Button(composite, SWT.FLAT);
-		
+	/**Button that adds up*/
 	public static Button sume = new Button(composite, SWT.FLAT);
 	
 	/**
 	 * Launch the application.
-	 * @param args
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		try {
@@ -77,7 +97,7 @@ public class BasicMatics {
 		shell.setImage(osLoad());
 		
 		settings = new Button(shell, SWT.CENTER);
-		settings.setImage(new Image(display, "icons/settings.png"));
+		settings.setImage(new Image(display, getClass().getResourceAsStream("/icons/settings.png")));
 		settings.setBounds(399, 10, 25, 25);
 		settings.setToolTipText("Access the settings page");
 		settings.setText("");
@@ -95,7 +115,7 @@ public class BasicMatics {
 		composite.setBounds(35, 156, 358, 64);
 		
 		dvdm.setBounds(10, 20, 75, 25);
-		dvdm.setImage(new Image(display, "icons/ops/divide.png"));
+		dvdm.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/divide.png")));
 		dvdm.setText("Divide");
 		dvdm.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -108,7 +128,7 @@ public class BasicMatics {
 		set.lang(dvdm);
 		
 		mtplm.setBounds(91, 20, 95, 25);
-		mtplm.setImage(new Image(display, "icons/ops/mtpl.png"));
+		mtplm.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/mtpl.png")));
 		mtplm.setText("Multiply");
 		mtplm.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -120,7 +140,7 @@ public class BasicMatics {
 		set.lang(mtplm);
 		
 		restm.setBounds(192, 20, 75, 25);
-		restm.setImage(new Image(display, "icons/ops/rest.png"));
+		restm.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/rest.png")));
 		restm.setText("Subtract");
 		restm.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -132,7 +152,7 @@ public class BasicMatics {
 		set.lang(restm);
 		
 		sumem.setBounds(273, 20, 75, 25);
-		sumem.setImage(new Image(display, "icons/ops/sume.png"));
+		sumem.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/sume.png")));
 		sumem.setText("Add Up");
 		sumem.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -146,14 +166,14 @@ public class BasicMatics {
 		backcomp.setBounds(10, 10, 45, 18);
 		
 		home.setBounds(0, 0, 18, 18);
-		home.setImage(new Image(display, "icons/home.png"));
+		home.setImage(new Image(display, getClass().getResourceAsStream("/icons/home.png")));
 		if (set.lang(null).equals("es"))
 			home.setToolTipText("Vuelve al Inicio");
 		else
 			home.setToolTipText("Go back to Home");
 		
 		back.setBounds(21, 0, 18, 18);
-		back.setImage(new Image(display, "icons/back.png"));
+		back.setImage(new Image(display, getClass().getResourceAsStream("/icons/back.png")));
 		if (set.lang(null).equals("es"))
 			back.setToolTipText("Vuelve atr\u00e1s");
 		else
@@ -161,56 +181,63 @@ public class BasicMatics {
 		
 		backcomp.setVisible(false);
 	}
-	
+
+	/**
+	 * Gets the default image for use per OS
+	 * @return the Image corresponding the OS
+	 */
 	public Image os() {
-		if (OS.name.indexOf("win") >= 0) {
+		if (OS.name.contains("win")) {
 			Settings.props.setOs("windows");
 			Settings.os_combo.select(0);
-			return new Image(display, "icons/bsm-windows.png");
-		} else if (OS.name.indexOf("mac") >= 0) {
+			return new Image(display, getClass().getResourceAsStream("/icons/bsm-windows.png"));
+		} else if (OS.name.contains("mac")) {
 			Settings.props.setOs("apple");
 			Settings.os_combo.select(1);
-			return (new Image(display, "icons/bsm-apple.png"));
-		} else if (OS.name.indexOf("nux") >= 0) {
+			return new Image(display, getClass().getResourceAsStream("/icons/bsm-apple.png"));
+		} else if (OS.name.contains("nux")) {
 			Settings.props.setOs("linux");
 			Settings.os_combo.select(2);
-			return new Image(display, "icons/bsm-linux.png");
-		} else if (OS.name.indexOf("debian") >= 0) {
+			return new Image(display, getClass().getResourceAsStream("/icons/bsm-linux.png"));
+		} else if (OS.name.contains("debian")) {
 			Settings.props.setOs("debian");
 			Settings.os_combo.select(3);
-			return new Image(display, "icons/bsm-debian.png");
-		} else if (OS.name.indexOf("ubuntu") >= 0) {
+			return new Image(display, getClass().getResourceAsStream("/icons/bsm-debian.png"));
+		} else if (OS.name.contains("ubuntu")) {
 			Settings.props.setOs("ubuntu");
 			Settings.os_combo.select(4);
-			return new Image(display, "icons/bsm-ubuntu.png");
+			return new Image(display, getClass().getResourceAsStream("/icons/bsm-ubuntu.png"));
 		} else {
 			Settings.props.setOs("bsm");
 			Settings.os_combo.select(5);
-			return new Image(display, "icons/bsm.png");
+			return new Image(display, getClass().getResourceAsStream("/icons/bsm.png"));
 		}
 	}
-	
+
+	/**
+	 *
+	 * @return the Image for use in shell and title
+	 */
 	public Image osLoad() {
 		try {
 			Settings.props.in = new FileInputStream(Settings.props.file);
 			if (!Settings.props.file.exists()) {
 				Settings.props.create();
-				Settings.props.props.load(Settings.props.in);
-				Settings.props.in.close();
 				return os();
 			} else {
+				Settings.props.in = new FileInputStream(Settings.props.file);
 				Settings.props.props.load(Settings.props.in);
 				Settings.props.in.close();
 				if (!Settings.props.existsKey("os") ) {
 					return os();
 				} else {
 					if (Settings.props.getOs().equals("bsm"))
-						return new Image(display, "icons/bsm.png");
+						return new Image(display, getClass().getResourceAsStream("/icons/bsm.png"));
 					else
-						return new Image(display, "icons/bsm-"+Settings.props.getOs()+".png");
+						return new Image(display, getClass().getResourceAsStream("/icons/bsm-"+Settings.props.getOs()+".png"));
 				}
 			}
-		} catch (IOException io) { io.printStackTrace(); return new Image(display, "icons/bsm.png"); }
+		} catch (IOException io) { io.printStackTrace(); return new Image(display, getClass().getResourceAsStream("/icons/bsm.png")); }
 	}
 	
 	/**
@@ -232,9 +259,9 @@ public class BasicMatics {
 		restm.setVisible(false);
 		sumem.setVisible(false);
 		
-		label.setImage(new Image(display, "icons/ops/bsm-divide.png"));
+		label.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/bsm-divide.png")));
 		bdvd.setBounds(51, 20, 75, 25);
-		bdvd.setImage(new Image(display, "icons/ops/divide.png"));
+		bdvd.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/divide.png")));
 		bdvd.setText("Divide");
 		bdvd.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -264,12 +291,12 @@ public class BasicMatics {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
 						try {
-							Double res = Ops.divide(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-							int index = res.toString().indexOf(".");
-							if (res.toString().substring(index+1).equals("0")) {
-								output.setText(""+res.intValue());
+							double res = Ops.divide(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
+							int index = Double.toString(res).indexOf(".");
+							if (Double.toString(res).substring(index+1).equals("0")) {
+								output.setText(""+ (int) res);
 							} else if (Settings.props.getAprox()) {
-								output.setText(""+res.floatValue());
+								output.setText(""+ (float) res);
 							} else {
 								output.setText(""+res);
 							}
@@ -317,7 +344,7 @@ public class BasicMatics {
 		
 		
 		bdvdr.setBounds(132, 20, 122, 25);
-		bdvdr.setImage(new Image(display, "icons/ops/divide.png"));
+		bdvdr.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/divide.png")));
 		bdvdr.setText("Division Rest");
 		bdvdr.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -346,12 +373,12 @@ public class BasicMatics {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
 						try {
-							Double res = Ops.divideRest(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-							int index = res.toString().indexOf(".");
-							if (res.toString().substring(index+1).equals("0")) {
-								output.setText(""+res.intValue());
+							double res = Ops.divideRest(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
+							int index = Double.toString(res).indexOf(".");
+							if (Double.toString(res).substring(index+1).equals("0")) {
+								output.setText(""+ (int) res);
 							} else if (Settings.props.getAprox()) {
-								output.setText(""+res.floatValue());
+								output.setText(""+ (float) res);
 							} else {
 								output.setText(""+res);
 							}
@@ -433,7 +460,7 @@ public class BasicMatics {
 		restm.setVisible(false);
 		sumem.setVisible(false);
 		
-		label.setImage(new Image(display, "icons/ops/bsm-mtpl.png"));
+		label.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/bsm-mtpl.png")));
 		Text output = new Text(shell, SWT.READ_ONLY | SWT.CENTER);
 		output.setBounds(95, 226, 233, 32);
 		
@@ -453,12 +480,12 @@ public class BasicMatics {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				try {
-					Double res = Ops.mtpl(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-					int index = res.toString().indexOf(".");
-					if (res.toString().substring(index+1).equals("0")) {
-						output.setText(""+res.intValue());
+					double res = Ops.mtpl(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
+					int index = Double.toString(res).indexOf(".");
+					if (Double.toString(res).substring(index+1).equals("0")) {
+						output.setText(""+ (int) res);
 					} else if (Settings.props.getAprox()) {
-						output.setText(""+res.floatValue());
+						output.setText(""+ (float) res);
 					} else {
 						output.setText(""+res);
 					}
@@ -509,7 +536,7 @@ public class BasicMatics {
 		restm.setVisible(false);
 		sumem.setVisible(false);
 		
-		label.setImage(new Image(display, "icons/ops/bsm-rest.png"));
+		label.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/bsm-rest.png")));
 		Text output = new Text(shell, SWT.READ_ONLY | SWT.CENTER);
 		output.setBounds(95, 226, 233, 32);
 		
@@ -529,12 +556,12 @@ public class BasicMatics {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				try {
-					Double res = Ops.rest(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-					int index = res.toString().indexOf(".");
-					if (res.toString().substring(index+1).equals("0")) {
-						output.setText(""+res.intValue());
+					double res = Ops.rest(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
+					int index = Double.toString(res).indexOf(".");
+					if (Double.toString(res).substring(index+1).equals("0")) {
+						output.setText(""+ (int) res);
 					} else if (Settings.props.getAprox()) {
-						output.setText(""+res.floatValue());
+						output.setText(""+ (float) res);
 					} else {
 						output.setText(""+res);
 					}
@@ -585,7 +612,7 @@ public class BasicMatics {
 		restm.setVisible(false);
 		sumem.setVisible(false);
 		
-		label.setImage(new Image(display, "icons/ops/bsm-sume.png"));
+		label.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/bsm-sume.png")));
 		Text output = new Text(shell, SWT.READ_ONLY | SWT.CENTER);
 		output.setBounds(95, 226, 233, 32);
 		
@@ -605,12 +632,12 @@ public class BasicMatics {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				try {
-					Double res = Ops.rest(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-					int index = res.toString().indexOf(".");
-					if (res.toString().substring(index+1).equals("0")) {
-						output.setText(""+res.intValue());
+					double res = Ops.rest(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
+					int index = Double.toString(res).indexOf(".");
+					if (Double.toString(res).substring(index+1).equals("0")) {
+						output.setText(""+ (int) res);
 					} else if (Settings.props.getAprox()) {
-						output.setText(""+res.floatValue());
+						output.setText(""+ (float) res);
 					} else {
 						output.setText(""+res);
 					}
