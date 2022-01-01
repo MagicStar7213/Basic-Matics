@@ -3,6 +3,7 @@
 ![Eclipse](https://img.shields.io/badge/Eclipse-2021_12-grey?style=flat&logo=eclipse&labelColor=blueviolet)
 ![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat)
 ![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics)
+![Maven Release](https://img.shields.io/maven-central/v/io.github.magicstar7213/basic-matics?style=flat&logo=apachemaven&logoColor=red&color=FF4B4B)
 
 [![News](https://img.shields.io/badge/NOTICIAS-5-00d8ff?style=social&logo=googlenews&logoColor=black)](https://github.com/MagicStar7213/Basic-Matics/blob/main/NEWS.md)
 
@@ -31,10 +32,11 @@ Al fin he logrado subir todo a Maven. Para descargarlo, tenéis aquí un link dire
 ### Gradle ###
 Para implementarla en Gradle, te dejo lo que debes hacer:
 
-``
+```
 dependencies {
-    implementation 'io.github.magicstar7213:basic-matics:1.0.1'
-}``
+   implementation 'io.github.magicstar7213:basic-matics:1.0.1'
+}
+```
 
 ### Maven ###
 
@@ -46,4 +48,4 @@ Y en Maven:
        <artifactId>basic-matics</artifact>
        <version>1.0.1</version>
    </dependency>
-</dependencies>``
+</dependencies>
