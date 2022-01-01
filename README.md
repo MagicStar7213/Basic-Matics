@@ -4,7 +4,7 @@
 ![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat)
 ![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics)
 
-[![News](https://img.shields.io/badge/NOTICIAS-1-00d8ff?style=social&logo=googlenews&logoColor=black)](https://github.com/MagicStar7213/Basic-Matics/blob/main/NEWS.md)
+[![News](https://img.shields.io/badge/NOTICIAS-5-00d8ff?style=social&logo=googlenews&logoColor=black)](https://github.com/MagicStar7213/Basic-Matics/blob/main/NEWS.md)
 
 ¡Hola! Bienvenido a mi primera aplicación, **Basic Matics**. Llevo algunos meses desarrollando esta primera versión, y por fin esta correcta.
 
@@ -17,16 +17,33 @@ sumar y restar; aunque ya desarrollé el sistema para realizar potencias y raíces
 ## 2. Cómo lo he hecho? ##
 Yo casi desde mis comienzos en el mundo de la programación he usado Java. Así que, guiándome por un proyecto de un libro y foros de internet, he logrado llegar a este punto.
 
-## 3. Cuál será su futuro? ##
-Está en una fase muy temprana, pero ya tengo previsto su futuro para llegar a la primera versión completa.
-Primero, voy a actualizar el funcionamiento interno, simplificando varias funciones; y después, realizaré una gran actualización gráfica.
-
-## 4. Errores conocidos ##
-Actualmente hay un bug que no cierra correctamente las pestañas. Será solucionado cuanto antes
-
 ## Cosas adicionales ##
 1. Pronto publicaré la primera beta de la versión para Android
-2. Estoy pensando en subirlo a Maven para que sus archivos sean utilizables para otras personas
-3. Se admiten pull requests
-4. Este proyecto está protegido con la AGPL v3.0
-5. Los detalles sobre el código se encuentran en las targetas al comienzo de este README.
+2. Se admiten pull requests
+3. Este proyecto está protegido con la AGPL v3.0
+4. Los detalles sobre el código se encuentran en las targetas al comienzo de este README.
+
+## Maven ##
+
+Al fin he logrado subir todo a Maven. Para descargarlo, tenéis aquí un link directo:
+[Basic Matics](https://repo1.maven.org/maven2/io/github/magicstar7213/basic-matics)
+
+### Gradle ###
+Para implementarla en Gradle, te dejo lo que debes hacer:
+
+``
+dependencies {
+    implementation 'io.github.magicstar7213:basic-matics:1.0.1'
+}``
+
+### Maven ###
+
+Y en Maven:
+```
+<dependencies>
+   <dependency>
+       <groupId>io.github.magicstar7213</groupId>
+       <artifactId>basic-matics</artifact>
+       <version>1.0.1</version>
+   </dependency>
+</dependencies>``

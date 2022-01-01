@@ -1,6 +1,6 @@
 # Project exclude paths
-/.idea/vcs.xml
-/.idea/workspace.xml
-/build/
-/build/classes/java/main/
-/target/
+.idea
+build
+.classpath
+.project
+Basic-Matics.iml
