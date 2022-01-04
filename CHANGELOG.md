@@ -1,13 +1,19 @@
  # ![Logo](icons/bsm.png) Basic-Matics Changelog #
  
-## Release 1.0.1 #
-The 1.0.1 release of Basic-Matics is here!! I finally implemented Maven.
+## Release 1.0.2 #
+La actualización 1.0.2 ha salido a la luz! 
+En esta versión solo arreglamos algunos bugs y añadí una nueva función, **Borrado**
 
-Here you have a listo of changes.
+### Borrado ###
+Es un botón que se añade a las páginas de las operaciones y que permite 
+el borrado de todos los campos de texto de la misma, facilitando la reescritura
+de las operaciones.
 
- * Added **Maven**
- * Packaged images inside jar.
- * Optimized code
- * Bugfix
+### Bugs ###
 
-That's all for this update, see you soon!!
+#### Solucionados ####
+ * Múltiples bugs respecto a las operaciones que no se ejecutaban bien.
+ * El resultado se quedaba visible al darle los botones de atrás o inicio desde cualquier operación
+
+#### No solucionados ####
+ * Al muliplicar 45 po 2.2 sale 99.0000000 en vez de 99

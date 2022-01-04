@@ -60,6 +60,8 @@ public class BasicMatics {
 	public static Button rest = new Button(composite, SWT.FLAT);
 	/**Button that adds up*/
 	public static Button sume = new Button(composite, SWT.FLAT);
+	/**Cleans all*/
+	public static Button clean = new Button(composite, SWT.FLAT | SWT.CENTER);
 	
 	/**
 	 * Launch the application.
@@ -180,6 +182,11 @@ public class BasicMatics {
 			back.setToolTipText("Go back");
 		
 		backcomp.setVisible(false);
+		
+		clean.setBounds(236, 37, 75, 25);
+		clean.setText("Clean");
+		clean.setVisible(false);
+		set.lang(clean);
 	}
 
 	/**
@@ -283,6 +290,16 @@ public class BasicMatics {
 				Text textb = new Text(composite, SWT.BORDER);
 				textb.setBounds(183, 10, 130, 21);
 				
+				clean.setVisible(true);
+				clean.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						texta.setText("");
+						textb.setText("");
+						output.setText("");
+					}
+				});
+				
 				dvd.setBounds(125, 37, 102, 25);
 				dvd.setText("Divide");
 				set.lang(dvd);
@@ -292,8 +309,7 @@ public class BasicMatics {
 					public void widgetSelected(SelectionEvent e) {
 						try {
 							double res = Ops.divide(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-							int index = Double.toString(res).indexOf(".");
-							if (Double.toString(res).substring(index+1).equals("0")) {
+							if ((res == Math.rint(res)) && !Double.isInfinite(res)) {
 								output.setText(""+ (int) res);
 							} else if (Settings.props.getAprox()) {
 								output.setText(""+ (float) res);
@@ -324,6 +340,7 @@ public class BasicMatics {
 						
 						back.setVisible(false);
 						home.setVisible(false);
+						clean.setVisible(false);
 					}
 				});
 				back.addSelectionListener(new SelectionAdapter() {
@@ -333,6 +350,7 @@ public class BasicMatics {
 						textb.setVisible(false);
 						dvd.setVisible(false);
 						back.setVisible(false);
+						clean.setVisible(false);
 						
 						bdvd.setVisible(true);
 						bdvdr.setVisible(true);
@@ -365,6 +383,16 @@ public class BasicMatics {
 				Text textb = new Text(composite, SWT.BORDER);
 				textb.setBounds(183, 10, 130, 21);
 				
+				clean.setVisible(true);
+				clean.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						texta.setText("");
+						textb.setText("");
+						output.setText("");
+					}
+				});
+				
 				dvdr.setBounds(125, 37, 102, 25);
 				dvdr.setText("Division Rest");
 				dvdr.setVisible(true);
@@ -374,10 +402,9 @@ public class BasicMatics {
 					public void widgetSelected(SelectionEvent e) {
 						try {
 							double res = Ops.divideRest(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-							int index = Double.toString(res).indexOf(".");
-							if (Double.toString(res).substring(index+1).equals("0")) {
+							if ((res == Math.rint(res)) && !Double.isInfinite(res)) {
 								output.setText(""+ (int) res);
-							} else if (Settings.props.getAprox()) {
+							} else if (set.ap) {
 								output.setText(""+ (float) res);
 							} else {
 								output.setText(""+res);
@@ -406,6 +433,7 @@ public class BasicMatics {
 						
 						back.setVisible(false);
 						home.setVisible(false);
+						clean.setVisible(false);
 					}
 				});
 				back.addSelectionListener(new SelectionAdapter() {
@@ -415,6 +443,7 @@ public class BasicMatics {
 						textb.setVisible(false);
 						dvdr.setVisible(false);
 						back.setVisible(false);
+						clean.setVisible(false);
 						
 						bdvd.setVisible(true);
 						bdvdr.setVisible(true);
@@ -472,6 +501,16 @@ public class BasicMatics {
 		Text textb = new Text(composite, SWT.BORDER);
 		textb.setBounds(183, 10, 130, 21);
 		
+		clean.setVisible(true);
+		clean.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				texta.setText("");
+				textb.setText("");
+				output.setText("");
+			}
+		});
+		
 		mtpl.setBounds(125, 37, 102, 25);
 		mtpl.setText("Multiply");
 		set.lang(mtpl);
@@ -481,8 +520,7 @@ public class BasicMatics {
 			public void widgetSelected(SelectionEvent e) {
 				try {
 					double res = Ops.mtpl(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-					int index = Double.toString(res).indexOf(".");
-					if (Double.toString(res).substring(index+1).equals("0")) {
+					if ((res == Math.rint(res)) && !Double.isInfinite(res)) {
 						output.setText(""+ (int) res);
 					} else if (Settings.props.getAprox()) {
 						output.setText(""+ (float) res);
@@ -513,6 +551,7 @@ public class BasicMatics {
 				
 				back.setVisible(false);
 				home.setVisible(false);
+				clean.setVisible(false);
 			}
 		});
 	}
@@ -548,6 +587,16 @@ public class BasicMatics {
 		Text textb = new Text(composite, SWT.BORDER);
 		textb.setBounds(183, 10, 130, 21);
 		
+		clean.setVisible(true);
+		clean.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				texta.setText("");
+				textb.setText("");
+				output.setText("");
+			}
+		});
+		
 		rest.setBounds(125, 37, 102, 25);
 		rest.setText("Rest");
 		set.lang(rest);
@@ -557,8 +606,7 @@ public class BasicMatics {
 			public void widgetSelected(SelectionEvent e) {
 				try {
 					double res = Ops.rest(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-					int index = Double.toString(res).indexOf(".");
-					if (Double.toString(res).substring(index+1).equals("0")) {
+					if ((res == Math.rint(res)) && !Double.isInfinite(res)) {
 						output.setText(""+ (int) res);
 					} else if (Settings.props.getAprox()) {
 						output.setText(""+ (float) res);
@@ -589,6 +637,7 @@ public class BasicMatics {
 				
 				back.setVisible(false);
 				home.setVisible(false);
+				clean.setVisible(false);
 			}
 		});
 	}
@@ -624,6 +673,16 @@ public class BasicMatics {
 		Text textb = new Text(composite, SWT.BORDER);
 		textb.setBounds(183, 10, 130, 21);
 		
+		clean.setVisible(true);
+		clean.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				texta.setText("");
+				textb.setText("");
+				output.setText("");
+			}
+		});
+		
 		sume.setBounds(125, 37, 102, 25);
 		sume.setText("Add Up");
 		set.lang(sume);
@@ -632,9 +691,8 @@ public class BasicMatics {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				try {
-					double res = Ops.rest(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
-					int index = Double.toString(res).indexOf(".");
-					if (Double.toString(res).substring(index+1).equals("0")) {
+					double res = Ops.sume(Double.parseDouble(texta.getText()), Double.parseDouble(textb.getText()));
+					if ((res == Math.rint(res)) && !Double.isInfinite(res)) {
 						output.setText(""+ (int) res);
 					} else if (Settings.props.getAprox()) {
 						output.setText(""+ (float) res);
@@ -665,6 +723,7 @@ public class BasicMatics {
 				
 				back.setVisible(false);
 				home.setVisible(false);
+				clean.setVisible(false);
 			}
 		});
 	}

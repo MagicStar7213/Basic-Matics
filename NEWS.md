@@ -47,3 +47,8 @@ iconos dentro del jar, así que ya no habrá zips y solo un jar. Ya subiré el exe.
 Además, la aplicación ya está subida a Maven!!! Para ver cómo implementarla, id al README.
 
 Eso ha sido todo. Os deseo un feliz año 2022!!!!
+
+### 4 Enero 2022 ###
+
+Sí, he sacado una nueva actualización. La 1.0.2. Soluciona unos bugs y añade un botón
+de borrado. Eso es todo. Hasta otra!

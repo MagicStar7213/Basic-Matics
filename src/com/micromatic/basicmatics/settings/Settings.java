@@ -24,7 +24,7 @@ public class Settings {
 	/**Approximation button*/
 	public Button aprox;
 	/**Detects if it is aproximated */
-	public Boolean ap;
+	public Boolean ap = props.getAprox();
 	/**Title composite*/
 	private Composite composite;
 	/**Title image*/
@@ -77,7 +77,7 @@ public class Settings {
 	protected void createContents() {
 		shell.setSize(450, 230);
 		shell.setText("Settings");
-		shell.setImage(new Image(display, getClass().getResourceAsStream("icons/@x45/settings.png")));
+		shell.setImage(new Image(display, getClass().getResourceAsStream("/icons/@x45/settings.png")));
 		
 		parent.setBounds(10, 71, 177, 90);
 		
@@ -190,7 +190,7 @@ public class Settings {
 		
 		prefimg = new Label(composite, SWT.NONE);
 		prefimg.setBounds(10, 3, 50, 50);
-		prefimg.setImage(new Image(display, getClass().getResourceAsStream("icons/@x45/settings.png")));
+		prefimg.setImage(new Image(display, getClass().getResourceAsStream("/icons/@x45/settings.png")));
 		
 		title = new Label(composite, SWT.CENTER);
 		title.setBounds(63, 18, 77, 27);
@@ -255,7 +255,7 @@ public class Settings {
 	}
 
 	/**
-	 * Translates the button to spanish
+	 * Translates the button to Spanish
 	 * @param target the button to change
 	 */
 	public void es(Button target) {
@@ -285,13 +285,17 @@ public class Settings {
 			case "Restore Default" :
 				target.setText("Predeterminado");
 				break;
+			case "Clean" :
+				target.setText("Borrar");
+				target.setToolTipText("Borrar todo");
+				break;
 			}
 		}
 		props.setLang("es");
 	}
 
 	/**
-	 * Translates all to spanish
+	 * Translates all to Spanish
 	 */
 	private void es() {
 		es(BasicMatics.dvdm);
@@ -305,6 +309,7 @@ public class Settings {
 		es(BasicMatics.mtpl);
 		es(BasicMatics.rest);
 		es(BasicMatics.sume);
+		es(BasicMatics.clean);
 		es(def);
 		es(aprox);
 		combo.setItem(0, "Ingl\u00e9s");
@@ -319,7 +324,7 @@ public class Settings {
 	}
 
 	/**
-	 * Translates to english the selected button
+	 * Translates to English the selected button
 	 * @param target the button selected
 	 */
 	public void en(Button target) {
@@ -349,13 +354,17 @@ public class Settings {
 			case "Predeterminado" :
 				target.setText("Restore Deafult");
 				break;
+			case "Borrar" :
+				target.setText("Clean");
+				target.setToolTipText("Cleans all");
+				break;
 			}
 		}
 		props.setLang("en");
 	}
 
 	/**
-	 * Translates all to english
+	 * Translates all to English
 	 */
 	private void en() {
 		en(BasicMatics.dvdm);
@@ -369,6 +378,7 @@ public class Settings {
 		en(BasicMatics.mtpl);
 		en(BasicMatics.rest);
 		en(BasicMatics.sume);
+		en(BasicMatics.clean);
 		en(def);
 		en(aprox);
 		combo.setItem(0, "English");
