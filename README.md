@@ -34,7 +34,7 @@ Para implementarla en Gradle, te dejo lo que debes hacer:
 
 ```
 dependencies {
-   implementation 'io.github.magicstar7213:basic-matics:1.0.1'
+   implementation 'io.github.magicstar7213:basic-matics:1.0.2'
 }
 ```
 
@@ -46,6 +46,6 @@ Y en Maven:
    <dependency>
        <groupId>io.github.magicstar7213</groupId>
        <artifactId>basic-matics</artifact>
-       <version>1.0.1</version>
+       <version>1.0.2</version>
    </dependency>
 </dependencies>
