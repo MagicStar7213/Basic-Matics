@@ -62,7 +62,7 @@ public class BasicMatics {
 	public static Button sume = new Button(composite, SWT.FLAT);
 	/**Cleans all*/
 	public static Button clean = new Button(composite, SWT.FLAT | SWT.CENTER);
-	
+
 	/**
 	 * Launch the application.
 	 * @param args the arguments
@@ -97,7 +97,7 @@ public class BasicMatics {
 		shell.setSize(450, 300);
 		shell.setText("Basic Matics");
 		shell.setImage(osLoad());
-		
+
 		settings = new Button(shell, SWT.CENTER);
 		settings.setImage(new Image(display, getClass().getResourceAsStream("/icons/settings.png")));
 		settings.setBounds(399, 10, 25, 25);
@@ -110,12 +110,12 @@ public class BasicMatics {
 			}
 		});
 		set.lang(settings);
-		
+
 		label.setBounds(133, 10, 128, 128);
 		label.setImage(osLoad());
-		
+
 		composite.setBounds(35, 156, 358, 64);
-		
+
 		dvdm.setBounds(10, 20, 75, 25);
 		dvdm.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/divide.png")));
 		dvdm.setText("Divide");
@@ -128,7 +128,7 @@ public class BasicMatics {
 			}
 		});
 		set.lang(dvdm);
-		
+
 		mtplm.setBounds(91, 20, 95, 25);
 		mtplm.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/mtpl.png")));
 		mtplm.setText("Multiply");
@@ -140,7 +140,7 @@ public class BasicMatics {
 			}
 		});
 		set.lang(mtplm);
-		
+
 		restm.setBounds(192, 20, 75, 25);
 		restm.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/rest.png")));
 		restm.setText("Subtract");
@@ -152,7 +152,7 @@ public class BasicMatics {
 			}
 		});
 		set.lang(restm);
-		
+
 		sumem.setBounds(273, 20, 75, 25);
 		sumem.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/sume.png")));
 		sumem.setText("Add Up");
@@ -164,25 +164,25 @@ public class BasicMatics {
 			}
 		});
 		set.lang(sumem);
-		
+
 		backcomp.setBounds(10, 10, 45, 18);
-		
+
 		home.setBounds(0, 0, 18, 18);
 		home.setImage(new Image(display, getClass().getResourceAsStream("/icons/home.png")));
 		if (set.lang(null).equals("es"))
 			home.setToolTipText("Vuelve al Inicio");
 		else
 			home.setToolTipText("Go back to Home");
-		
+
 		back.setBounds(21, 0, 18, 18);
 		back.setImage(new Image(display, getClass().getResourceAsStream("/icons/back.png")));
 		if (set.lang(null).equals("es"))
 			back.setToolTipText("Vuelve atr\u00e1s");
 		else
 			back.setToolTipText("Go back");
-		
+
 		backcomp.setVisible(false);
-		
+
 		clean.setBounds(236, 37, 75, 25);
 		clean.setText("Clean");
 		clean.setVisible(false);
@@ -246,12 +246,12 @@ public class BasicMatics {
 			}
 		} catch (IOException io) { io.printStackTrace(); return new Image(display, getClass().getResourceAsStream("/icons/bsm.png")); }
 	}
-	
+
 	/**
 	 * Creates the dividing interface
 	 * @since Beta 1.3
 	 */
-	
+
 	public void divide() {
 		if (set.lang(null).equals("es"))
 			shell.setText("Basic Matics - Divisi\u00f3n");
@@ -260,12 +260,12 @@ public class BasicMatics {
 		backcomp.setVisible(true);
 		home.setVisible(true);
 		back.setVisible(false);
-		
+
 		dvdm.setVisible(false);
 		mtplm.setVisible(false);
 		restm.setVisible(false);
 		sumem.setVisible(false);
-		
+
 		label.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/bsm-divide.png")));
 		bdvd.setBounds(51, 20, 75, 25);
 		bdvd.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/divide.png")));
@@ -275,21 +275,21 @@ public class BasicMatics {
 			public void widgetSelected(SelectionEvent e) {
 				home.setVisible(true);
 				back.setVisible(true);
-				
+
 				bdvd.setVisible(false);
 				bdvdr.setVisible(false);
-				
+
 				Text output = new Text(shell, SWT.READ_ONLY | SWT.CENTER);
 				output.setBounds(95, 226, 233, 32);
-				
+
 				output.setFont(new Font(display, "Segoe UI", 20, SWT.BOLD));
-				
+
 				Text texta = new Text(composite, SWT.BORDER);
 				texta.setBounds(45, 10, 115, 21);
-				
+
 				Text textb = new Text(composite, SWT.BORDER);
 				textb.setBounds(183, 10, 130, 21);
-				
+
 				clean.setVisible(true);
 				clean.addSelectionListener(new SelectionAdapter() {
 					@Override
@@ -299,7 +299,7 @@ public class BasicMatics {
 						output.setText("");
 					}
 				});
-				
+
 				dvd.setBounds(125, 37, 102, 25);
 				dvd.setText("Divide");
 				set.lang(dvd);
@@ -324,20 +324,20 @@ public class BasicMatics {
 						}
 					}
 				});
-				
+
 				home.addSelectionListener(new SelectionAdapter() {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
 						dvd.setVisible(false);
 						texta.setVisible(false);
 						textb.setVisible(false);
-						
+
 						label.setImage(osLoad());
 						dvdm.setVisible(true);
 						mtplm.setVisible(true);
 						sumem.setVisible(true);
 						restm.setVisible(true);
-						
+
 						back.setVisible(false);
 						home.setVisible(false);
 						clean.setVisible(false);
@@ -351,7 +351,7 @@ public class BasicMatics {
 						dvd.setVisible(false);
 						back.setVisible(false);
 						clean.setVisible(false);
-						
+
 						bdvd.setVisible(true);
 						bdvdr.setVisible(true);
 					}
@@ -359,8 +359,8 @@ public class BasicMatics {
 			}
 		});
 		set.lang(bdvd);
-		
-		
+
+
 		bdvdr.setBounds(132, 20, 122, 25);
 		bdvdr.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/divide.png")));
 		bdvdr.setText("Division Rest");
@@ -368,21 +368,21 @@ public class BasicMatics {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				back.setVisible(true);
-				
+
 				bdvd.setVisible(false);
 				bdvdr.setVisible(false);
-				
+
 				Text output = new Text(shell, SWT.READ_ONLY | SWT.CENTER);
 				output.setBounds(95, 226, 233, 32);
-				
+
 				output.setFont(new Font(display, "Segoe UI", 20, SWT.BOLD));
-				
+
 				Text texta = new Text(composite, SWT.BORDER);
 				texta.setBounds(45, 10, 115, 21);
-				
+
 				Text textb = new Text(composite, SWT.BORDER);
 				textb.setBounds(183, 10, 130, 21);
-				
+
 				clean.setVisible(true);
 				clean.addSelectionListener(new SelectionAdapter() {
 					@Override
@@ -392,7 +392,7 @@ public class BasicMatics {
 						output.setText("");
 					}
 				});
-				
+
 				dvdr.setBounds(125, 37, 102, 25);
 				dvdr.setText("Division Rest");
 				dvdr.setVisible(true);
@@ -417,20 +417,20 @@ public class BasicMatics {
 						}
 					}
 				});
-				
+
 				home.addSelectionListener(new SelectionAdapter() {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
 						dvdr.setVisible(false);
 						texta.setVisible(false);
 						textb.setVisible(false);
-						
+
 						label.setImage(osLoad());
 						dvdm.setVisible(true);
 						mtplm.setVisible(true);
 						sumem.setVisible(true);
 						restm.setVisible(true);
-						
+
 						back.setVisible(false);
 						home.setVisible(false);
 						clean.setVisible(false);
@@ -444,7 +444,7 @@ public class BasicMatics {
 						dvdr.setVisible(false);
 						back.setVisible(false);
 						clean.setVisible(false);
-						
+
 						bdvd.setVisible(true);
 						bdvdr.setVisible(true);
 					}
@@ -457,24 +457,24 @@ public class BasicMatics {
 			public void widgetSelected(SelectionEvent e) {
 				bdvd.setVisible(false);
 				bdvdr.setVisible(false);
-				
+
 				label.setImage(osLoad());
 				dvdm.setVisible(true);
 				mtplm.setVisible(true);
 				sumem.setVisible(true);
 				restm.setVisible(true);
-				
+
 				back.setVisible(false);
 				home.setVisible(false);
 			}
 		});
 	}
-	
+
 	/**
 	 * Creates the multiplying interface
 	 * @since Beta 1.3
 	 */
-	
+
 	public void mtpl() {
 		if (set.lang(null).equals("es"))
 			shell.setText("Basic Matics - Multiplicaci\u00f3n");
@@ -483,24 +483,24 @@ public class BasicMatics {
 		backcomp.setVisible(true);
 		home.setVisible(true);
 		back.setVisible(false);
-		
+
 		dvdm.setVisible(false);
 		mtplm.setVisible(false);
 		restm.setVisible(false);
 		sumem.setVisible(false);
-		
+
 		label.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/bsm-mtpl.png")));
 		Text output = new Text(shell, SWT.READ_ONLY | SWT.CENTER);
 		output.setBounds(95, 226, 233, 32);
-		
+
 		output.setFont(new Font(display, "Segoe UI", 20, SWT.BOLD));
-		
+
 		Text texta = new Text(composite, SWT.BORDER);
 		texta.setBounds(45, 10, 115, 21);
-		
+
 		Text textb = new Text(composite, SWT.BORDER);
 		textb.setBounds(183, 10, 130, 21);
-		
+
 		clean.setVisible(true);
 		clean.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -510,7 +510,7 @@ public class BasicMatics {
 				output.setText("");
 			}
 		});
-		
+
 		mtpl.setBounds(125, 37, 102, 25);
 		mtpl.setText("Multiply");
 		set.lang(mtpl);
@@ -535,32 +535,32 @@ public class BasicMatics {
 				}
 			}
 		});
-		
+
 		home.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				mtpl.setVisible(false);
 				texta.setVisible(false);
 				textb.setVisible(false);
-				
+
 				label.setImage(osLoad());
 				dvdm.setVisible(true);
 				mtplm.setVisible(true);
 				sumem.setVisible(true);
 				restm.setVisible(true);
-				
+
 				back.setVisible(false);
 				home.setVisible(false);
 				clean.setVisible(false);
 			}
 		});
 	}
-	
+
 	/**
 	 * Creates the subtracting interface
 	 * @since Beta 1.3
 	 */
-	
+
 	public void rest() {
 		if (set.lang(null).equals("es"))
 			shell.setText("Basic Matics - Resta");
@@ -569,24 +569,24 @@ public class BasicMatics {
 		backcomp.setVisible(true);
 		home.setVisible(true);
 		back.setVisible(false);
-		
+
 		dvdm.setVisible(false);
 		mtplm.setVisible(false);
 		restm.setVisible(false);
 		sumem.setVisible(false);
-		
+
 		label.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/bsm-rest.png")));
 		Text output = new Text(shell, SWT.READ_ONLY | SWT.CENTER);
 		output.setBounds(95, 226, 233, 32);
-		
+
 		output.setFont(new Font(display, "Segoe UI", 20, SWT.BOLD));
-		
+
 		Text texta = new Text(composite, SWT.BORDER);
 		texta.setBounds(45, 10, 115, 21);
-		
+
 		Text textb = new Text(composite, SWT.BORDER);
 		textb.setBounds(183, 10, 130, 21);
-		
+
 		clean.setVisible(true);
 		clean.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -596,7 +596,7 @@ public class BasicMatics {
 				output.setText("");
 			}
 		});
-		
+
 		rest.setBounds(125, 37, 102, 25);
 		rest.setText("Rest");
 		set.lang(rest);
@@ -621,32 +621,32 @@ public class BasicMatics {
 				}
 			}
 		});
-		
+
 		home.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				rest.setVisible(false);
 				texta.setVisible(false);
 				textb.setVisible(false);
-				
+
 				label.setImage(osLoad());
 				dvdm.setVisible(true);
 				mtplm.setVisible(true);
 				sumem.setVisible(true);
 				restm.setVisible(true);
-				
+
 				back.setVisible(false);
 				home.setVisible(false);
 				clean.setVisible(false);
 			}
 		});
 	}
-	
+
 	/**
 	 * Creates the adding up interface
 	 * @since Beta 1.3
 	 */
-	
+
 	public void sume() {
 		if (set.lang(null).equals("es"))
 			shell.setText("Basic Matics - Suma");
@@ -655,24 +655,24 @@ public class BasicMatics {
 		backcomp.setVisible(true);
 		home.setVisible(true);
 		back.setVisible(false);
-		
+
 		dvdm.setVisible(false);
 		mtplm.setVisible(false);
 		restm.setVisible(false);
 		sumem.setVisible(false);
-		
+
 		label.setImage(new Image(display, getClass().getResourceAsStream("/icons/ops/bsm-sume.png")));
 		Text output = new Text(shell, SWT.READ_ONLY | SWT.CENTER);
 		output.setBounds(95, 226, 233, 32);
-		
+
 		output.setFont(new Font(display, "Segoe UI", 20, SWT.BOLD));
-		
+
 		Text texta = new Text(composite, SWT.BORDER);
 		texta.setBounds(45, 10, 115, 21);
-		
+
 		Text textb = new Text(composite, SWT.BORDER);
 		textb.setBounds(183, 10, 130, 21);
-		
+
 		clean.setVisible(true);
 		clean.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -682,7 +682,7 @@ public class BasicMatics {
 				output.setText("");
 			}
 		});
-		
+
 		sume.setBounds(125, 37, 102, 25);
 		sume.setText("Add Up");
 		set.lang(sume);
@@ -707,20 +707,20 @@ public class BasicMatics {
 				}
 			}
 		});
-		
+
 		home.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				sume.setVisible(false);
 				texta.setVisible(false);
 				textb.setVisible(false);
-				
+
 				label.setImage(osLoad());
 				dvdm.setVisible(true);
 				mtplm.setVisible(true);
 				sumem.setVisible(true);
 				restm.setVisible(true);
-				
+
 				back.setVisible(false);
 				home.setVisible(false);
 				clean.setVisible(false);

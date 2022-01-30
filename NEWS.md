@@ -37,7 +37,7 @@ Ya sé que es muy pronto, pero he decidido lanzar la 1.0.1, que soluciona
 algunos bugs, optimiza código y reestructura el sistema de imágenes, 
 empaquetándolas en el mismo jar.
 
-# 2022 #
+## 2022 ##
 
 ### 1 Enero 2022 ###
 
@@ -52,3 +52,20 @@ Eso ha sido todo. Os deseo un feliz año 2022!!!!
 
 Sí, he sacado una nueva actualización. La 1.0.2. Soluciona unos bugs y añade un botón
 de borrado. Eso es todo. Hasta otra!
+
+### 29 Enero 2022 ###
+
+He añadido una opción para calcular números primos. Aún no está terminada, pero
+iré sacando una snapshot para que vayáis viendo cómo va.
+
+En nada es Año Nuevo Chino:dragon: :cn:
+
+Y a ver quién va a Eurovisión en la Final del Benidorm Fest!!!!
+![Benidorm Fest](https://www.lavanguardia.com/files/image_449_220/uploads/2022/01/24/61eed3fc784df.jpeg)
+
+### 30 Enero de 2022 ###
+
+Al final no ganaron!!! Quedaron terceras, con Rigoberta Bandini segunda y Chanel ganadora.
+Por cierto, saqué la 1.0.3, que soluciona un crash grave.
+
+Ánimo con la semana!!!

@@ -98,33 +98,33 @@ public class Settings {
 					props.props.load(props.in);
 					switch (os_combo.getSelectionIndex()) {
 					case 0 :
-						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-windows.png")));
-						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-windows.png")));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-windows.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-windows.png")));
 						props.setOs("windows");
 						break;
 					case 1 :
-						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-apple.png")));
-						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-apple.png")));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-apple.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-apple.png")));
 						props.setOs("apple");
 						break;
 					case 2 :
-						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-linux.png")));
-						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-linux.png")));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-linux.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-linux.png")));
 						props.setOs("linux");
 						break;
 					case 3 :
-						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-debian.png")));
-						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-debian.png")));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-debian.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-debian.png")));
 						props.setOs("debian");
 						break;
 					case 4 :
-						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-ubuntu.png")));
-						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm-ubuntu.png")));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-ubuntu.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm-ubuntu.png")));
 						props.setOs("ubuntu");
 						break;
 					case 5 :
-						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm.png")));
-						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("icons/bsm.png")));
+						BasicMatics.label.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm.png")));
+						BasicMatics.shell.setImage(new Image(bsm.display, getClass().getResourceAsStream("/icons/bsm.png")));
 						props.setOs("bsm");
 						break;
 					}
@@ -206,10 +206,8 @@ public class Settings {
 			public void widgetSelected(SelectionEvent e) {
 				if (System.getProperty("user.language").equals("es")) {
 					es();
-					def.setText("Predeterminado");
 				} else {
 					en();
-					def.setText("Restore Deafult");
 				}
 				BasicMatics.shell.setImage(bsm.os());
 				BasicMatics.label.setImage(bsm.os());

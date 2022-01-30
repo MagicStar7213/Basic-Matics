@@ -1,11 +1,11 @@
 # ![Logo](icons/bsm.png)Basic-Matics #
-![Java](https://img.shields.io/badge/Java-17.0.1-grey?style=flat&logo=java&labelColor=009ab5)
+![Java](https://img.shields.io/badge/Java-17.0.2-grey?style=flat&logo=java&labelColor=009ab5)
 ![Eclipse](https://img.shields.io/badge/Eclipse-2021_12-grey?style=flat&logo=eclipse&labelColor=blueviolet)
 ![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat)
 ![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics)
 ![Maven Release](https://img.shields.io/maven-central/v/io.github.magicstar7213/basic-matics?style=flat&logo=apachemaven&logoColor=red&color=FF4B4B)
 
-[![News](https://img.shields.io/badge/NOTICIAS-5-00d8ff?style=social&logo=googlenews&logoColor=black)](https://github.com/MagicStar7213/Basic-Matics/blob/main/NEWS.md)
+[![News](https://img.shields.io/badge/NOTICIAS-7-00d8ff?style=social&logo=googlenews&logoColor=black)](https://github.com/MagicStar7213/Basic-Matics/blob/main/NEWS.md)
 
 ¡Hola! Bienvenido a mi primera aplicación, **Basic Matics**. Llevo algunos meses desarrollando esta primera versión, y por fin esta correcta.
 
@@ -23,6 +23,7 @@ Yo casi desde mis comienzos en el mundo de la programación he usado Java. Así qu
 2. Se admiten pull requests
 3. Este proyecto está protegido con la AGPL v3.0
 4. Los detalles sobre el código se encuentran en las targetas al comienzo de este README.
+5. El changelog está en el archivo CHANGELOG
 
 ## Maven ##
 
@@ -49,3 +50,4 @@ Y en Maven:
        <version>1.0.2</version>
    </dependency>
 </dependencies>
+```
