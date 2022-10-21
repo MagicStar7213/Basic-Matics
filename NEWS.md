@@ -85,4 +85,5 @@ Los planes que tengo para ella son algo ambiciosos, por lo que llevará tiempo. 
  * Migración a Kotlin, aunque para cambios en SWT creo que seguiré teniendo una versión en Java para editarla en Eclipse
  * Adaptación para (a ser posible) todas las resoluciones
  * Porte para Linux y Mac (ya están listos para x86_64, pero llegarán para tantas plataformas y arquitectutas como para las cuales esté disponible SWT)
+
 Ya véis que es mucho, pero la migración a Gradle y Kotlin está hecha, me falta el resto, además de corregir bugs que encontré
