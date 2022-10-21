@@ -76,3 +76,13 @@ porte para Android ya que estoy aplicando los cambios realizados
 en la versión 1.0 y me está llevando tiempo. Ahora estoy
 trabajando en la detección automática del idioma y espero al final del
 verano acabar el porte y lanzarlo. Un abrazo!:relaxed:
+
+### 21 Octubre de 2022 ###
+Uffff!! Ahora sí que llevo tiempo sin decir nada. En este tiempo me he introducido a Linux, y he vuelto a trabajar en la calculadora.
+
+Los planes que tengo para ella son algo ambiciosos, por lo que llevará tiempo. Los cambios serían:
+ * Migración (otra vez) a Gradle. Maven es muy liosa y difícil:sweat_smile:
+ * Migración a Kotlin, aunque para cambios en SWT creo que seguiré teniendo una versión en Java para editarla en Eclipse
+ * Adaptación para (a ser posible) todas las resoluciones
+ * Porte para Linux y Mac (ya están listos para x86_64, pero llegarán para tantas plataformas y arquitectutas como para las cuales esté disponible SWT)
+Ya véis que es mucho, pero la migración a Gradle y Kotlin está hecha, me falta el resto, además de corregir bugs que encontré
