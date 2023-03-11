@@ -10,9 +10,28 @@ This is the start of a migration from my original app written in Kotlin to Pytho
 I want to rewrite it in a simpler way.
 
 ## Installation ##
-Python 3 is necessary for building this app.
+Python 3 and Tkinter are necessary for building this app.
 ### UNIX / Linux ###
-You just need to install build module
+First, install the Python Tkinter module:
+
+#### Debian / Ubuntu ####
+```shell
+sudo apt install python3-tk
+```
+#### Fedora ####
+```shell
+sudo dnf install python3-tkinter
+```
+#### RHEL / CentOS / Oracle Linux ####
+```shell
+yum install tkinter
+```
+#### Arch / Manjaro ####
+```shell
+sudo pacman -S tk
+```
+
+Then, install python package `build`:
 
 `pip3 install --upgrade build`
 
