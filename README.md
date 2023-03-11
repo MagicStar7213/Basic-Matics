@@ -18,8 +18,8 @@ Basic Matics es mi Hola Mundo. Empecé hace dos años en el mundo de la programa
 Mediante libros y foros de Internet he ido desarrollando esta aplicación/programa y que mejoraré con el paso del tiempo
 
 ## Planes futuros ##
- - [] Migraré el programa a <span style="color:#8b51f0;">**Kotlin**</span> *En proceso*
- - [] Realizaré un porte para <span style="color:#16da2b;">**Android**</span> *En proceso*
+ - [ ] Migraré el programa a <span style="color:#8b51f0;">**Kotlin**</span> *En proceso*
+ - [ ] Realizaré un porte para <span style="color:#16da2b;">**Android**</span> *En proceso*
  * Añadir más operaciones - Estoy pensando en una sección de Geometría
 
 ### Gradle ###
