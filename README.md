@@ -1,51 +1,41 @@
-# ![Logo](icons/bsm.png)Basic-Matics #
-![Java](https://img.shields.io/badge/Java-17.0.1-grey?style=flat&logo=java&labelColor=009ab5)
-![Eclipse](https://img.shields.io/badge/Eclipse-2021_12-grey?style=flat&logo=eclipse&labelColor=blueviolet)
-![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat)
-![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics)
-![Maven Release](https://img.shields.io/maven-central/v/io.github.magicstar7213/basic-matics?style=flat&logo=apachemaven&logoColor=red&color=FF4B4B)
+# Basic-Matics Python #
+<!-- Badges -->
+![Python](https://img.shields.io/badge/-Python-yellow?labelColor=blue&logo=python&logoColor=white&style=flat-square)
 
-[![News](https://img.shields.io/badge/NOTICIAS-5-00d8ff?style=social&logo=googlenews&logoColor=black)](https://github.com/MagicStar7213/Basic-Matics/blob/main/NEWS.md)
+This is a rewrite of my Basic-Matics app to Python
 
-¡Hola! Bienvenido a mi primera aplicación, **Basic Matics**. Llevo algunos meses desarrollando esta primera versión, y por fin esta correcta.
+This is the start of a migration from my original app written in Kotlin to Python, as I found many bugs and
+I want to rewrite it in a simpler way.
 
-Para ver las noticias sobre el desarrollo de esta, haz click en la imagen en la que pone Noticias.
+## Installation ##
+Python 3 is necessary for building this app.
+### UNIX / Linux ###
+You just need to install build module
 
-## 1. De qué trata? ##
-Pues esta aplicación es una simple calculadora a la que le iré añadiendo diversas funciones a lo largo de los meses y/o años. Por ahora, solo es capaz de dividir, multiplicar,
-sumar y restar; aunque ya desarrollé el sistema para realizar potencias y raíces cuadradas.
+`pip3 install --upgrade build`
 
-## 2. Cómo lo he hecho? ##
-Yo casi desde mis comienzos en el mundo de la programación he usado Java. Así que, guiándome por un proyecto de un libro y foros de internet, he logrado llegar a este punto.
+Then, `cd` to the project directory and run
 
-## Cosas adicionales ##
-1. Pronto publicaré la primera beta de la versión para Android
-2. Se admiten pull requests
-3. Este proyecto está protegido con la AGPL v3.0
-4. Los detalles sobre el código se encuentran en las targetas al comienzo de este README.
+`python3 -m build && pip3 install basicmatics-$VERSION-py3-none-any.whl`
 
-## Maven ##
+Now it's successfully installed! To run it, type
 
-Al fin he logrado subir todo a Maven. Para descargarlo, tenéis aquí un link directo:
-[Basic Matics](https://repo1.maven.org/maven2/io/github/magicstar7213/basic-matics)
+`python3 -m basicmatics`
 
-### Gradle ###
-Para implementarla en Gradle, te dejo lo que debes hacer:
+### Windows ###
+You just need to install build module
 
-```
-dependencies {
-   implementation 'io.github.magicstar7213:basic-matics:1.0.2'
-}
-```
+`pip install --upgrade build`
 
-### Maven ###
+Then, `cd` to the project directory and run
 
-Y en Maven:
-```
-<dependencies>
-   <dependency>
-       <groupId>io.github.magicstar7213</groupId>
-       <artifactId>basic-matics</artifact>
-       <version>1.0.2</version>
-   </dependency>
-</dependencies>
+`python -m build && pip install basicmatics-$VERSION-py3-none-any.whl`
+
+Now it's successfully installed! To run it, type
+
+`python -m basicmatics`
+
+## Usage ##
+This is a very simple app, and it is everything clear when you run it.
+
+It is pretty clear and intuitive, so you won't have problem
