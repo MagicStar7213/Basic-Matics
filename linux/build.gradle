@@ -1,0 +1,7 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+group 'com.micromatic.basic-matics'
+
+ext.set("platform", "gtk.linux.x86_64")

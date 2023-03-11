@@ -1,34 +1,26 @@
-# ![Logo](icons/bsm.png)Basic-Matics #
-![Java](https://img.shields.io/badge/Java-17.0.2-grey?style=flat&logo=java&labelColor=009ab5)
-![Eclipse](https://img.shields.io/badge/Eclipse-2021_12-grey?style=flat&logo=eclipse&labelColor=blueviolet)
-![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat)
-![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics)
-![Maven Release](https://img.shields.io/maven-central/v/io.github.magicstar7213/basic-matics?style=flat&logo=apachemaven&logoColor=red&color=FF4B4B)
+# Basic-Matics #
+![JDK](https://img.shields.io/badge/-Kotlin-b124ea?style=flat-square&logo=kotlin&labelColor=grey)
+![IntelliJ IDEA](https://img.shields.io/badge/-IntelliJ-b5339a?style=flat-square&logo=intellij-idea&labelColor=grey)
+![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat-square)
+![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics?style=flat-square)
+![Maven Release](https://img.shields.io/maven-central/v/io.github.magicstar7213/basic-matics?style=flat-square&logo=apachemaven&logoColor=red&color=red)
 
 [![News](https://img.shields.io/badge/NOTICIAS-7-00d8ff?style=social&logo=googlenews&logoColor=black)](https://github.com/MagicStar7213/Basic-Matics/blob/main/NEWS.md)
 
-¡Hola! Bienvenido a mi primera aplicación, **Basic Matics**. Llevo algunos meses desarrollando esta primera versión, y por fin esta correcta.
+Â¡Hola! Bienvenido a mi primera aplicaciÃ³n, **Basic Matics**. Llevo algunos meses desarrollando esta primera versiÃ³n, y por fin estÃ¡ correcta.
 
-Para ver las noticias sobre el desarrollo de esta, haz click en la imagen en la que pone Noticias.
+Para ver las noticias sobre el desarrollo de esta, haz clic en la imagen en la que pone Noticias.
 
-## 1. De qué trata? ##
-Pues esta aplicación es una simple calculadora a la que le iré añadiendo diversas funciones a lo largo de los meses y/o años. Por ahora, solo es capaz de dividir, multiplicar,
-sumar y restar; aunque ya desarrollé el sistema para realizar potencias y raíces cuadradas.
+## 1. Â¿De quÃ© trata? ##
+Basic Matics es mi Hola Mundo. EmpecÃ© hace dos aÃ±os en el mundo de la programaciÃ³n y la informÃ¡tica y es mi forma de empezar
 
-## 2. Cómo lo he hecho? ##
-Yo casi desde mis comienzos en el mundo de la programación he usado Java. Así que, guiándome por un proyecto de un libro y foros de internet, he logrado llegar a este punto.
+## 2. CÃ³mo lo he hecho? ##
+Mediante libros y foros de Internet he ido desarrollando esta aplicaciÃ³n/programa y que mejorarÃ© con el paso del tiempo
 
-## Cosas adicionales ##
-1. Pronto publicaré la primera beta de la versión para Android
-2. Se admiten pull requests
-3. Este proyecto está protegido con la AGPL v3.0
-4. Los detalles sobre el código se encuentran en las targetas al comienzo de este README.
-5. El changelog está en el archivo CHANGELOG
-
-## Maven ##
-
-Al fin he logrado subir todo a Maven. Para descargarlo, tenéis aquí un link directo:
-[Basic Matics](https://repo1.maven.org/maven2/io/github/magicstar7213/basic-matics)
+## Planes futuros ##
+ - [] MigrarÃ© el programa a <span style="color:#8b51f0;">**Kotlin**</span> *En proceso*
+ - [] RealizarÃ© un porte para <span style="color:#16da2b;">**Android**</span> *En proceso*
+ * AÃ±adir mÃ¡s operaciones - Estoy pensando en una secciÃ³n de GeometrÃ­a
 
 ### Gradle ###
 Para implementarla en Gradle, te dejo lo que debes hacer:

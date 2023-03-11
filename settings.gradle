@@ -1,0 +1,6 @@
+
+rootProject.name = 'basic-matics'
+include 'win'
+include 'macosx'
+include 'linux'
+

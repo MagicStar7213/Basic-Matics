@@ -1,0 +1,68 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.8.10'
+}
+
+group = 'com.micromatic'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+subprojects {
+    ext {
+        platform = ''
+        main_class = 'com.micromatic.basicmatics.BasicMatics'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    afterEvaluate {
+        dependencies {
+            implementation("org.eclipse.platform:org.eclipse.swt.$platform:3.122.0") {
+                exclude group: 'org.eclipse.platform', module: 'org.eclipse.swt'
+            }
+            implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.8.10'
+            testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+            testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+        }
+        jar {
+            manifest {
+                attributes 'Main-Class': main_class
+            }
+            from(configurations.runtimeClasspath.collect {it.isDirectory() ? it : zipTree(it)}) {
+                exclude 'META-INF', 'META-INF/**'
+            }
+        }
+
+        test {
+            useJUnitPlatform()
+        }
+
+        compileKotlin {
+            kotlinOptions.jvmTarget = '19'
+        }
+
+        compileTestKotlin {
+            kotlinOptions.jvmTarget = '19'
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '19'
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = '19'
+}

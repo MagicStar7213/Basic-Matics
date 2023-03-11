@@ -1,6 +1,8 @@
 # Project exclude paths
 .idea
 build
-.classpath
-.project
 Basic-Matics.iml
+
+
+# Ignore Gradle project-specific cache directory
+.gradle
