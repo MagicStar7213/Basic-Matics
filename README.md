@@ -1,8 +1,7 @@
 # Basic-Matics #
 ![JDK](https://img.shields.io/badge/-Kotlin-b124ea?style=flat-square&logo=kotlin&labelColor=grey)
-![IntelliJ IDEA](https://img.shields.io/badge/-IntelliJ-b5339a?style=flat-square&logo=intellij-idea&labelColor=grey)
-![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&style=flat-square)
-![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics?style=flat-square)
+![GitHub release](https://img.shields.io/github/v/release/MagicStar7213/Basic-Matics?include_prereleases&sort=semver&logo=github&style=flat-square)
+![GitHub license](https://img.shields.io/github/license/MagicStar7213/Basic-Matics?style=flat-square&logo=github)
 ![Maven Release](https://img.shields.io/maven-central/v/io.github.magicstar7213/basic-matics?style=flat-square&logo=apachemaven&logoColor=red&color=red)
 
 [![News](https://img.shields.io/badge/NOTICIAS-7-00d8ff?style=social&logo=googlenews&logoColor=black)](NEWS.md)
