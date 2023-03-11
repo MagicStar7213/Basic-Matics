@@ -1,0 +1,19 @@
+[project]
+name = "basicmatics"
+version = "0.0.1"
+authors = [
+    { name = "Breixo Montenegro", email = "saltaestrellas@hotmail.com" }
+]
+description = "Small python calculator"
+license = "LICENSE"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Python :: 3",
+    "License :: AGPL :: 3.0",
+    "OS :: OS Independent"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

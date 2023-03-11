@@ -1,6 +1,5 @@
 # Project exclude paths
 .idea
-build
-.classpath
-.project
+.idea/*
+basicmatics/.python-version
 Basic-Matics.iml
