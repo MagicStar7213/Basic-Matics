@@ -1,5 +1,8 @@
 # Project exclude paths
 .idea
-.idea/*
-basicmatics/.python-version
+build
 Basic-Matics.iml
+
+
+# Ignore Gradle project-specific cache directory
+.gradle
