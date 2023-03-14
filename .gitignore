@@ -1,6 +1,7 @@
 # Project exclude path
 .idea/markdown.xml
 .idea/vcs.xml
+.idea/shelf
 build
 Basic-Matics.iml
 
