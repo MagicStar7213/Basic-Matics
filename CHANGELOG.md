@@ -1,7 +1,7 @@
- # ![Logo](icons/bsm.png) Basic-Matics Changelog #
+ # Basic-Matics Changelog #
  
 ## Release 1.0.3 #
-Únicamente hemos solucionado un crash importante
+ï¿½nicamente hemos solucionado un crash importante
 
 ### Bugs ###
 
