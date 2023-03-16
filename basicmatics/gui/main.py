@@ -6,31 +6,9 @@ from tkinter.ttk import *
 from PIL import Image, ImageTk
 from ttkthemes import ThemedStyle
 
-
-def base(s: str):
-    text = title['text']
-    title.config(text=text+s)
-
-    op_frame = Frame(master=main_frame)
-    op_frame.pack(pady=10)
-
-    entry1 = Entry(master=op_frame)
-    entry1.pack(side=LEFT, padx=2.5)
-
-    entry2 = Entry(master=op_frame)
-    entry2.pack(side=LEFT, padx=2.5)
-
-    calculate = Button(master=op_frame, text='Calculate')
-    calculate.pack(side=LEFT, padx=2.5)
-
-    clean = Button(master=op_frame, text='Calculate')
-    clean.text = 'Clean'
-    clean.pack(side=LEFT, padx=2.5)
-
-
 os = platform.system()
 window = tk.Tk()
-
+window.title("Basic-Matics")
 style = ThemedStyle(window)
 if os == 'Linux':
     distro = platform.freedesktop_os_release()
@@ -56,8 +34,62 @@ icon = Label(master=label_frame, image=img, width=64)
 icon.image = img
 icon.pack(expand=True, anchor="center")
 
+window.iconphoto(True, img)
+
+title = Label(master=label_frame, text="Basic-Matics", font=("Segoe UI", 18))
+title.pack(expand=True)
+
+op_frame = Frame(master=main_frame)
+
+
+def goback():
+    title.config(text="Basic-Matics")
+    button_frame.pack(side=LEFT, anchor=W)
+    op_frame.pack_forget()
+
+
+def is_int(a: float):
+    if a.is_integer():
+        return int(a)
+    else:
+        return a
+
+
+def calc(a: float, b: float, clc: str):
+    if clc == 'dvd':
+        return is_int(a/b)
+    elif clc == 'dvdr':
+        return is_int(a%b)
+    elif clc == 'mtp':
+        return is_int(a*b)
+    elif clc == 'sub':
+        return is_int(a-b)
+    elif clc == 'add':
+        return is_int(a+b)
+
+
+entry1 = Entry(master=op_frame)
+entry2 = Entry(master=op_frame)
+calculate = Button(master=op_frame, text='Calculate')
+clean = Button(master=op_frame, text='Clean')
+
+
+def base(s: str, op: str):
+    button_frame.pack_forget()
+
+    text = title['text']
+    title.config(text=text + s)
+
+    op_frame.pack(pady=10)
+    entry1.pack(side=LEFT, padx=2.5)
+    entry2.pack(side=LEFT, padx=2.5)
+    calculate.pack(side=LEFT, padx=2.5)
+    calculate.config(command=lambda: calc(float(entry1.get()), float(entry2.get()), op))
+    clean.pack(side=LEFT, padx=2.5)
+
+
 back_img = ImageTk.PhotoImage(Image.open("icons/back.png"))
-back = Button(master=top_frame, image=back_img)
+back = Button(master=top_frame, image=back_img, command=lambda: goback())
 back.image = back_img
 back.pack(side=LEFT, anchor=W)
 
@@ -66,19 +98,16 @@ set_button = Button(master=top_frame, image=set_img)
 set_button.image = set_img
 set_button.pack(expand=True, anchor=E)
 
-title = Label(master=label_frame, text="Basic-Matics", font=("Segoe UI", 18))
-title.pack(expand=True)
-
-divide = Button(master=button_frame, text="Divide")
+divide = Button(master=button_frame, text="Divide", command=lambda: base("\n - Division -", 'dvd'))
 divide.pack(side="left", padx=5, expand=True)
 
-multiplicate = Button(master=button_frame, text="Multiplicate", command=base("\n- Multiplication -"))
+multiplicate = Button(master=button_frame, text="Multiplicate", command=lambda: base("\n - Multiplication -", 'mtp'))
 multiplicate.pack(side="left", padx=5, expand=True)
 
-add = Button(master=button_frame, text="Add Up", command=base("\n- Addition -"))
+add = Button(master=button_frame, text="Add Up", command=lambda: base("\n - Addition -", 'add'))
 add.pack(side="left", padx=5, expand=True)
 
-subtract = Button(master=button_frame, text="Subtract", command=base("\n- Subtraction -"))
+subtract = Button(master=button_frame, text="Subtract", command=lambda: base("\n - Subtraction -", 'sub'))
 subtract.pack(side="left", padx=5, expand=True)
 
 window.mainloop()
