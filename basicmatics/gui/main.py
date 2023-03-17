@@ -1,6 +1,7 @@
 import platform
 import tkinter as tk
 from tkinter import *
+from tkinter import messagebox
 from tkinter.ttk import *
 
 from PIL import Image, ImageTk
@@ -71,7 +72,13 @@ def calc(a: float, b: float, clc: str):
 entry1 = Entry(master=op_frame)
 entry2 = Entry(master=op_frame)
 calculate = Button(master=op_frame, text='Calculate')
-clean = Button(master=op_frame, text='Clean')
+clean = Button(master=op_frame, text='Clean', command=lambda: clean_func())
+dialog = messagebox.Message(window)
+
+
+def clean_func():
+    entry1.delete(0, END)
+    entry2.delete(0, END)
 
 
 def base(s: str, op: str):
