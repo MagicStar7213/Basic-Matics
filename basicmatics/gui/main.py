@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import *
 
+
 from PIL import Image, ImageTk
 from ttkthemes import ThemedStyle
 
@@ -73,12 +74,21 @@ entry1 = Entry(master=op_frame)
 entry2 = Entry(master=op_frame)
 calculate = Button(master=op_frame, text='Calculate')
 clean = Button(master=op_frame, text='Clean', command=lambda: clean_func())
-dialog = messagebox.Message(window)
 
 
 def clean_func():
     entry1.delete(0, END)
     entry2.delete(0, END)
+
+
+def show(a):
+    messagebox.showinfo("Result", a)
+    copy = messagebox.askquestion("Result", "Do you want to copy it to the clipboard", icon='info')
+    if copy == 'yes':
+        window.clipboard_append(a)
+        window.update()
+    else:
+        pass
 
 
 def base(s: str, op: str):
@@ -91,7 +101,7 @@ def base(s: str, op: str):
     entry1.pack(side=LEFT, padx=2.5)
     entry2.pack(side=LEFT, padx=2.5)
     calculate.pack(side=LEFT, padx=2.5)
-    calculate.config(command=lambda: calc(float(entry1.get()), float(entry2.get()), op))
+    calculate.config(command=lambda: show(calc(float(entry1.get()), float(entry2.get()), op)))
     clean.pack(side=LEFT, padx=2.5)
 
 
