@@ -33,28 +33,40 @@ sudo pacman -S tk
 
 Then, install python package `build`:
 
-`pip3 install --upgrade build`
+```shell
+pip3 install --upgrade build
+```
 
 Then, `cd` to the project directory and run
 
-`python3 -m build && pip3 install basicmatics-$VERSION-py3-none-any.whl`
+```shell
+python3 -m build && pip3 install basicmatics-$VERSION-py3-none-any.whl
+```
 
 Now it's successfully installed! To run it, type
 
-`python3 -m basicmatics`
+```shell
+python3 -m basicmatics
+```
 
 ### Windows ###
 You just need to install build module
 
-`pip install --upgrade build`
+```shell
+pip install --upgrade build
+```
 
 Then, `cd` to the project directory and run
 
-`python -m build && pip install basicmatics-$VERSION-py3-none-any.whl`
+```shell
+python -m build && pip install basicmatics-$VERSION-py3-none-any.whl
+```
 
 Now it's successfully installed! To run it, type
 
-`python -m basicmatics`
+```shell
+python -m basicmatics
+```
 
 ## Usage ##
 This is a very simple app, and it is everything clear when you run it.
