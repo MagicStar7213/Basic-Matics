@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import *
+from ops import *
 
 
 from PIL import Image, ImageTk
@@ -44,32 +45,23 @@ title.pack(expand=True)
 op_frame = Frame(master=main_frame)
 
 
+def switch_div():
+    if title['text'] == "Basic-Matics\n - Division -":
+        title.config(text="Basic-Matics\n - Remainder -")
+        calculate.config(command=lambda: show(calc(float(entry1.get()), float(entry2.get()), 'dvdr')))
+    elif title['text'] == "Basic-Matics\n - Remainder -":
+        title.config(text="Basic-Matics\n - Division -")
+        calculate.config(command=lambda: show(calc(float(entry1.get()), float(entry2.get()), 'dvd')))
+
+
 def goback():
     title.config(text="Basic-Matics")
     button_frame.pack(side=LEFT, anchor=W)
+    switch.pack_forget()
     op_frame.pack_forget()
 
 
-def is_int(a: float):
-    if a.is_integer():
-        return int(a)
-    else:
-        return a
-
-
-def calc(a: float, b: float, clc: str):
-    if clc == 'dvd':
-        return is_int(a/b)
-    elif clc == 'dvdr':
-        return is_int(a%b)
-    elif clc == 'mtp':
-        return is_int(a*b)
-    elif clc == 'sub':
-        return is_int(a-b)
-    elif clc == 'add':
-        return is_int(a+b)
-
-
+switch = Button(master=main_frame, text="Switch", command=lambda: switch_div())
 entry1 = Entry(master=op_frame)
 entry2 = Entry(master=op_frame)
 calculate = Button(master=op_frame, text='Calculate')
@@ -97,7 +89,10 @@ def base(s: str, op: str):
     text = title['text']
     title.config(text=text + s)
 
-    op_frame.pack(pady=10)
+    if op == 'dvd':
+        switch.pack(pady=5)
+
+    op_frame.pack(pady=5)
     entry1.pack(side=LEFT, padx=2.5)
     entry2.pack(side=LEFT, padx=2.5)
     calculate.pack(side=LEFT, padx=2.5)
