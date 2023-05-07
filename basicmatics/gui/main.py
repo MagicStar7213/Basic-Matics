@@ -9,7 +9,7 @@ from ttkthemes import ThemedStyle
 from basicmatics.gui.ops import *
 from basicmatics.gui.settings import Settings
 
-
+# Main GUI Class #
 class GUI:
     def __init__(self):
         self.set = Settings()
