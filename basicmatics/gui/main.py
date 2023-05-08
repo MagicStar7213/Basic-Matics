@@ -2,9 +2,15 @@ import platform
 from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import *
+from pip._internal.cli import main as pip
 
-from PIL import Image, ImageTk
-from ttkthemes import ThemedStyle
+try:
+    from PIL import Image, ImageTk
+    from ttkthemes import ThemedStyle
+except ImportError:
+    pip.main(['install', 'pillow', 'ttkthemes'])
+    from PIL import Image, ImageTk
+    from ttkthemes import ThemedStyle
 
 from basicmatics.gui.ops import *
 from basicmatics.gui.settings import Settings
