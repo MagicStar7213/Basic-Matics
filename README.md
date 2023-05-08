@@ -10,11 +10,12 @@ This is the start of a migration from my original app written in Kotlin to Pytho
 I want to rewrite it in a simpler way.
 
 ## Installation ##
-Python 3 and Tkinter are necessary for building this app.
+Python 3.7 or higher and Tkinter are necessary for building this app.
 ### UNIX / Linux ###
 First, install the Python Tkinter module:
 
 #### Debian / Ubuntu ####
+You'll need Debian Buster / Ubuntu 18.04 (Bionic) or higher
 ```shell
 sudo apt install python3-tk
 ```
