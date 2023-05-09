@@ -8,12 +8,13 @@ try:
     from PIL import Image, ImageTk
     from ttkthemes import ThemedStyle
 except ImportError:
-    pip.main(['install', 'pillow', 'ttkthemes'])
+    pip.main(['install', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2'])
     from PIL import Image, ImageTk
     from ttkthemes import ThemedStyle
 
 from basicmatics.gui.ops import *
 from basicmatics.gui.settings import Settings
+
 
 # Main GUI Class #
 class GUI:
