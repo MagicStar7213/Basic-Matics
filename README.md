@@ -33,6 +33,7 @@ If you have python 3.6 installed, update it with
 ```shell
 sudo pacman -S python
 ```
+Then, install tkinter:
 ```shell
 sudo pacman -S tk
 ```
