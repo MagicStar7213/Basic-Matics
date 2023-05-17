@@ -4,6 +4,7 @@ from tkinter.ttk import *
 from basicmatics.data.settings import *
 
 
+# Settings GUI class #
 class Settings:
 
     def __init__(self):
