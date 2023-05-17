@@ -20,6 +20,7 @@ You'll need Debian Buster / Ubuntu 18.04 (Bionic) or higher
 sudo apt install python3-tk
 ```
 #### Fedora ####
+You'll need Fedora 29 or higher, or update your python3 package
 ```shell
 sudo dnf install python3-tkinter
 ```
@@ -28,6 +29,10 @@ sudo dnf install python3-tkinter
 yum install tkinter
 ```
 #### Arch / Manjaro ####
+If you have python 3.6 installed, update it with
+```shell
+sudo pacman -S python
+```
 ```shell
 sudo pacman -S tk
 ```
