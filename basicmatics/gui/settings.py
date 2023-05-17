@@ -48,9 +48,9 @@ class Settings:
 
         lang_choose = Combobox(general_frame, state='readonly', textvariable=lang, values=LANGS)
         if self.lang == 'es':
-            lang_choose.current(1)
+            lang_choose.set(LANGS[1])
         elif self.lang == 'en':
-            lang_choose.current(0)
+            lang_choose.set(LANGS[0])
         lang_choose.bind('<<ComboboxSelected>>', self.change_lang())
         lang_choose.pack()
 
