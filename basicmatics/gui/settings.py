@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk
 from tkinter.ttk import *
 
 
@@ -61,6 +60,6 @@ class Settings:
 
         self.aprox_var = IntVar()
         self.aprox_var.set(self.aprox)
-        aprox_button = ttk.Checkbutton(custom_frame, variable=self.aprox_var, text=self.language['aprox'], command=lambda: self.change_aprox())
+        aprox_button = Checkbutton(custom_frame, variable=self.aprox_var, text=self.language['aprox'], command=lambda: self.change_aprox())
         aprox_button.config(variable=self.aprox_var)
         aprox_button.pack()
