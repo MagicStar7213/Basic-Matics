@@ -1,5 +1,7 @@
 from tkinter import *
+from tkinter import ttk
 from tkinter.ttk import *
+
 
 from basicmatics.data.settings import *
 
@@ -8,7 +10,7 @@ from basicmatics.data.settings import *
 class Settings:
 
     def __init__(self):
-        self.aprox = None
+        self.aprox: int = get_aprox()
         self.lang = prefs['General']['lang']
         self.language = get_lang()
 
@@ -19,11 +21,13 @@ class Settings:
             set_lang('en')
 
     def change_aprox(self):
-        set_aprox(1) if self.aprox == 1 else set_aprox(0)
+        if self.aprox_var.get() == 1:
+            set_aprox(1)
+        else:
+            set_aprox(0)
 
     def settings(self, window: Tk, img):
         self.set_window = Toplevel(master=window)
-        lang = StringVar(window)
         self.set_window.title("Settings")
 
         LANGS = [self.language['en'], self.language['es']]
@@ -47,7 +51,7 @@ class Settings:
         img_title.pack()
         set_title.pack()
 
-        lang_choose = Combobox(general_frame, state='readonly', textvariable=lang, values=LANGS)
+        lang_choose = Combobox(general_frame, state='readonly', values=LANGS)
         if self.lang == 'es':
             lang_choose.current(1)
         elif self.lang == 'en':
@@ -55,6 +59,8 @@ class Settings:
         lang_choose.bind('<<ComboboxSelected>>', self.change_lang())
         lang_choose.pack()
 
-        self.aprox = IntVar()
-        aprox_button = Checkbutton(custom_frame, variable=self.aprox, text=self.language['aprox'])
+        self.aprox_var = IntVar()
+        self.aprox_var.set(self.aprox)
+        aprox_button = ttk.Checkbutton(custom_frame, variable=self.aprox_var, text=self.language['aprox'], command=lambda: self.change_aprox())
+        aprox_button.config(variable=self.aprox_var)
         aprox_button.pack()

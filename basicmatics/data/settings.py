@@ -9,7 +9,7 @@ prefs = ConfigParser()
 
 if not os.path.exists(path):
     os.makedirs(path)
-if not os.path.exists(file) or prefs.has_section('General'):
+if not os.path.exists(file):
     open(file, 'x')
     prefs['General'] = {'lang': 'en',
                         'aprox': 0}
@@ -30,7 +30,6 @@ def get_pref(section: str, key: str) -> Any:
 
 def set_lang(lang: str):
     set_pref('General', 'lang', lang)
-    prefs.write(open(file, 'w'))
 
 
 def get_lang() -> dict:
@@ -42,7 +41,6 @@ def get_lang() -> dict:
 
 def set_aprox(apr: int):
     set_pref('General', 'aprox', apr)
-    prefs.write(open(file, 'w'))
 
 
 def get_aprox() -> int:
