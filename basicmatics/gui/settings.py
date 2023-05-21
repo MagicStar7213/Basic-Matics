@@ -10,13 +10,13 @@ class Settings:
 
     def __init__(self):
         self.aprox: int = get_aprox()
-        self.lang = prefs['General']['lang']
+        self.lang = lang
         self.language = get_lang()
 
     def change_lang(self):
-        if self.lang == 'en':
+        if self.lang_choose.get() == self.language['es']:
             set_lang('es')
-        elif self.lang == 'es':
+        else:
             set_lang('en')
 
     def change_aprox(self):
@@ -50,16 +50,17 @@ class Settings:
         img_title.pack()
         set_title.pack()
 
-        lang_choose = Combobox(general_frame, state='readonly', values=LANGS)
+        self.lang_choose = Combobox(general_frame, state='readonly', values=LANGS)
         if self.lang == 'es':
-            lang_choose.current(1)
+            self.lang_choose.current(1)
         elif self.lang == 'en':
-            lang_choose.current(0)
-        lang_choose.bind('<<ComboboxSelected>>', self.change_lang())
-        lang_choose.pack()
+            self.lang_choose.current(0)
+        self.lang_choose.bind('<<ComboboxSelected>>', lambda e: self.change_lang())
+        self.lang_choose.pack()
 
         self.aprox_var = IntVar()
         self.aprox_var.set(self.aprox)
-        aprox_button = Checkbutton(custom_frame, variable=self.aprox_var, text=self.language['aprox'], command=lambda: self.change_aprox())
+        aprox_button = Checkbutton(general_frame, variable=self.aprox_var, text=self.language['aprox'],
+                                   command=self.change_aprox)
         aprox_button.config(variable=self.aprox_var)
         aprox_button.pack()

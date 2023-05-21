@@ -22,11 +22,11 @@ class GUI:
         self.set = Settings()
         self.lang = self.set.language
 
-        self.switch = Button(master=self.main_frame, text=self.lang['switch'], command=lambda: self.switch_div())
+        self.switch = Button(master=self.main_frame, text=self.lang['switch'], command=self.switch_div)
         self.entry1 = Entry(master=self.op_frame)
         self.entry2 = Entry(master=self.op_frame)
         self.calculate = Button(master=self.op_frame, text=self.lang['calc'])
-        self.clean = Button(master=self.op_frame, text=self.lang['clean'], command=lambda: self.clean_func())
+        self.clean = Button(master=self.op_frame, text=self.lang['clean'], command=self.clean_func)
     os = platform.system()
     window = Tk()
     window.title("Basic-Matics")
@@ -107,18 +107,20 @@ class GUI:
         self.title.pack(expand=True)
 
         back_img = ImageTk.PhotoImage(Image.open("basicmatics/gui/icons/back.png"))
-        back = Button(master=self.top_frame, image=back_img, command=lambda: self.goback())
+        back = Button(master=self.top_frame, image=back_img, command=self.goback)
         back.image = back_img
         back.pack(side=LEFT, anchor=W)
 
-        divide = Button(master=self.button_frame, text=self.lang['divide'], command=lambda: self.base(self.lang['divide_title'], 'dvd'))
+        divide = Button(master=self.button_frame, text=self.lang['divide'],
+                        command=lambda: self.base(self.lang['divide_title'], 'dvd'))
         divide.pack(side="left", padx=5, expand=True)
 
         multiplicate = Button(master=self.button_frame, text=self.lang['multiplicate'],
                               command=lambda: self.base(self.lang['multiplicate_title'], 'mtp'))
         multiplicate.pack(side="left", padx=5, expand=True)
 
-        add = Button(master=self.button_frame, text=self.lang['add'], command=lambda: self.base(self.lang['add_title'], 'add'))
+        add = Button(master=self.button_frame, text=self.lang['add'],
+                     command=lambda: self.base(self.lang['add_title'], 'add'))
         add.pack(side="left", padx=5, expand=True)
 
         subtract = Button(master=self.button_frame, text=self.lang['subtract'],
@@ -126,7 +128,8 @@ class GUI:
         subtract.pack(side="left", padx=5, expand=True)
 
         set_img = ImageTk.PhotoImage(Image.open("basicmatics/gui/icons/settings.png"))
-        set_button = Button(master=self.top_frame, image=set_img, command=lambda: self.set.settings(self.window, self.img))
+        set_button = Button(master=self.top_frame, image=set_img,
+                            command=lambda: self.set.settings(self.window, self.img))
         set_button.image = set_img
         set_button.pack(expand=True, anchor=E)
 

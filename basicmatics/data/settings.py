@@ -15,7 +15,7 @@ if not os.path.exists(file):
                         'aprox': 0}
     prefs.write(open(file, 'w'))
 
-prefs_file = prefs.read(file)
+prefs.read(file)
 lang = prefs['General']['lang']
 
 
@@ -30,6 +30,7 @@ def get_pref(section: str, key: str) -> Any:
 
 def set_lang(lang: str):
     set_pref('General', 'lang', lang)
+    prefs.write(open(file, 'w'))
 
 
 def get_lang() -> dict:
@@ -41,6 +42,7 @@ def get_lang() -> dict:
 
 def set_aprox(apr: int):
     set_pref('General', 'aprox', apr)
+    prefs.write(open(file, 'w'))
 
 
 def get_aprox() -> int:
