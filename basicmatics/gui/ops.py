@@ -1,7 +1,5 @@
 from basicmatics.data.settings import *
 
-aprox = get_aprox()
-
 
 def is_int(number: float):
     if number.is_integer():
@@ -11,7 +9,7 @@ def is_int(number: float):
 
 
 def is_aprox(number: float):
-    if aprox == 1:
+    if get_aprox() == 1:
         return round(number, 3)
     else:
         return number
