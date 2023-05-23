@@ -7,10 +7,19 @@ from pip._internal.cli import main as pip
 try:
     from PIL import Image, ImageTk
     from ttkthemes import ThemedStyle
-except ImportError:
-    pip.main(['install', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2'])
+    import distro
+except ImportError or ModuleNotFoundError:
+    if platform.system() == 'Linux' and platform.freedesktop_os_release()['ID'] == 'ubuntu' or 'debian':
+        print("Packages missing")
+        print("On Debian and Ubuntu 23.04 or higher you must run: sudo apt install python3-pillow python3-pillow.imagetk python3-ttkthemes python3-distro")
+        print("In lower versions you can also use pip: pip3 install pillow ttkthemes distro")
+    else:
+        print("Installing missing packages...")
+        pip.main(['install', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0'])
+        print("Packages successfully installed")
     from PIL import Image, ImageTk
     from ttkthemes import ThemedStyle
+    import distro
 
 from basicmatics.gui.ops import *
 from basicmatics.gui.settings import Settings
@@ -33,9 +42,8 @@ class GUI:
     img = ImageTk.PhotoImage(Image.open("basicmatics/gui/icons/bsm.png"))
     style = ThemedStyle(window)
     if os == 'Linux':
-        distro = platform.freedesktop_os_release()
-        if distro['ID'] == 'ubuntu':
-            style.theme_use('yaru') if float(distro['VERSION_ID']) >= 20.04 else style.theme_use('ubuntu')
+        if distro.id() == 'ubuntu':
+            style.theme_use('yaru') if float(distro.version(False)) >= 20.04 else style.theme_use('ubuntu')
         else:
             style.theme_use('arc')
 
