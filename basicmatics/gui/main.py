@@ -9,14 +9,9 @@ try:
     from ttkthemes import ThemedStyle
     import distro
 except ImportError or ModuleNotFoundError:
-    if platform.system() == 'Linux' and platform.freedesktop_os_release()['ID'] == 'ubuntu' or 'debian':
-        print("Packages missing")
-        print("On Debian and Ubuntu 23.04 or higher you must run: sudo apt install python3-pillow python3-pillow.imagetk python3-ttkthemes python3-distro")
-        print("In lower versions you can also use pip: pip3 install pillow ttkthemes distro")
-    else:
-        print("Installing missing packages...")
-        pip.main(['install', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0'])
-        print("Packages successfully installed")
+    print("Installing missing packages...")
+    pip.main(['install', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0'])
+    print("Packages successfully installed")
     from PIL import Image, ImageTk
     from ttkthemes import ThemedStyle
     import distro
