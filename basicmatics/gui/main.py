@@ -12,7 +12,7 @@ except ImportError or ModuleNotFoundError:
     print("Installing missing packages...")
     install_packages = run(['pip', 'install', '-q', '-q', '-q', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0'])
     if install_packages.returncode != 0:
-        print("Python Packages are externally managed. Installing packages with APT")
+        print("Python Packages are externally managed. Installing packages with APT...")
         run(['sudo', 'apt', 'install', 'python3-pil.imagetk', 'python3-ttkthemes', 'python3-distro'])
     else:
         print("Packages successfully installed")
