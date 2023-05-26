@@ -2,7 +2,7 @@ import platform
 from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import *
-from pip._internal.cli import main as pip
+from subprocess import run
 
 try:
     from PIL import Image, ImageTk
@@ -10,11 +10,16 @@ try:
     import distro
 except ImportError or ModuleNotFoundError:
     print("Installing missing packages...")
-    pip.main(['install', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0'])
-    print("Packages successfully installed")
-    from PIL import Image, ImageTk
-    from ttkthemes import ThemedStyle
-    import distro
+    install_packages = run(['pip','install', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0', '>/dev/null'])
+    if install_packages.returncode != 0:
+        print("Some packages are missing")
+        print("Since Ubuntu 23.04 and Debian bullseye, you need to install python packages globally with APT")
+        print("To continue, run: sudo apt install python3-pillow.imagetk python3-ttkthemes python3-distro")
+    else:
+        print("Packages successfully installed")
+        from PIL import Image, ImageTk
+        from ttkthemes import ThemedStyle
+        import distro
 
 from basicmatics.gui.ops import *
 from basicmatics.gui.settings import Settings
