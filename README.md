@@ -12,23 +12,24 @@ I want to rewrite it in a simpler way.
 ## Installation ##
 Python 3.7 or higher and Tkinter are necessary for building this app.
 ### UNIX / Linux ###
+#### Configuration ####
 First, install the Python Tkinter module:
 
-#### Debian / Ubuntu ####
+##### Debian / Ubuntu #####
 You'll need Debian Buster / Ubuntu 18.04 (Bionic) or higher
 ```shell
-sudo apt install python3-tk
+sudo apt install python3-tk python3-pil.imagetk python3-ttkthemes python3-distro
 ```
-#### Fedora ####
+##### Fedora #####
 You'll need Fedora 29 or higher, or update your python3 package
 ```shell
 sudo dnf install python3-tkinter
 ```
-#### RHEL / CentOS / Oracle Linux ####
+##### RHEL / CentOS / Oracle Linux #####
 ```shell
 yum install tkinter
 ```
-#### Arch / Manjaro ####
+##### Arch / Manjaro #####
 If you have python 3.6 installed, update it with
 ```shell
 sudo pacman -S python
@@ -38,6 +39,7 @@ Then, install tkinter:
 sudo pacman -S tk
 ```
 
+#### Building ####
 Then, install python package `build`:
 
 ```shell
