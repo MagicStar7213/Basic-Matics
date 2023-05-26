@@ -12,7 +12,8 @@ if not os.path.exists(path):
 if not os.path.exists(file):
     open(file, 'x')
     prefs['General'] = {'lang': 'en',
-                        'aprox': 0}
+                        'aprox': 0,
+                        'restart': 1}
     prefs.write(open(file, 'w'))
 
 prefs.read(file)

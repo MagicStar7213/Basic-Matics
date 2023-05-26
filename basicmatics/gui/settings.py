@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.ttk import *
-
+from tkinter import messagebox
 
 from basicmatics.data.settings import *
 
@@ -18,12 +18,15 @@ class Settings:
             set_lang('es')
         else:
             set_lang('en')
+        messagebox.showinfo('Restart required', 'Restart is required for changes to take effect')
+        set_restart(1)
 
     def change_aprox(self):
         if self.aprox_var.get() == 1:
             set_aprox(1)
         else:
             set_aprox(0)
+
 
     def settings(self, window: Tk, img):
         self.set_window = Toplevel(master=window)
