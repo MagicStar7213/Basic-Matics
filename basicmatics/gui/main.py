@@ -15,6 +15,7 @@ except ImportError or ModuleNotFoundError:
         print("Some packages are missing")
         print("Since Ubuntu 23.04 and Debian bullseye, you need to install python packages globally with APT")
         print("To continue, run: sudo apt install python3-pillow.imagetk python3-ttkthemes python3-distro")
+        exit(1)
     else:
         print("Packages successfully installed")
         from PIL import Image, ImageTk
