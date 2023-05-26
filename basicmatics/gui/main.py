@@ -10,17 +10,15 @@ try:
     import distro
 except ImportError or ModuleNotFoundError:
     print("Installing missing packages...")
-    install_packages = run(['pip', 'install', '-q', '-q', '-q', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0', '>/dev/null'])
+    install_packages = run(['pip', 'install', '-q', '-q', '-q', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0'])
     if install_packages.returncode != 0:
-        print("Some packages are missing")
-        print("Since Ubuntu 23.04 and Debian bullseye, you need to install python packages globally with APT")
-        print("To continue, run: sudo apt install python3-pil.imagetk python3-ttkthemes python3-distro")
-        exit(1)
+        print("Python Packages are externally managed. Installing packages with APT")
+        run(['sudo', 'apt', 'install', 'python3-pil.imagetk', 'python3-ttkthemes', 'python3-distro'])
     else:
         print("Packages successfully installed")
-        from PIL import Image, ImageTk
-        from ttkthemes import ThemedStyle
-        import distro
+    from PIL import Image, ImageTk
+    from ttkthemes import ThemedStyle
+    import distro
 
 from basicmatics.gui.ops import *
 from basicmatics.gui.settings import Settings
