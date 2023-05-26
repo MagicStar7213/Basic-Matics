@@ -19,7 +19,6 @@ class Settings:
         else:
             set_lang('en')
         messagebox.showinfo('Restart required', 'Restart is required for changes to take effect')
-        set_restart(1)
 
     def change_aprox(self):
         if self.aprox_var.get() == 1:
