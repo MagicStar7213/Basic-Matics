@@ -10,7 +10,7 @@ try:
     import distro
 except ImportError or ModuleNotFoundError:
     print("Installing missing packages...")
-    install_packages = run(['pip','install', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0', '>/dev/null'])
+    install_packages = run(['pip', 'install', '-q', '-q', '-q', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0', '>/dev/null'])
     if install_packages.returncode != 0:
         print("Some packages are missing")
         print("Since Ubuntu 23.04 and Debian bullseye, you need to install python packages globally with APT")
