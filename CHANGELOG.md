@@ -2,7 +2,7 @@
 ![Python](https://img.shields.io/badge/-Python-yellow?labelColor=blue&logo=python&logoColor=white&style=flat-square)
 ![Release](https://img.shields.io/github/v/tag/magicstar7213/basic-matics?logo=github&sort=semver&style=flat-square)
 ![License](https://img.shields.io/github/license/magicstar7213/basic-matics?logo=github&style=flat-square)
- 
+
 ## Release 2.0 ##
 Basic-Matics is finally ported to Python.
 
