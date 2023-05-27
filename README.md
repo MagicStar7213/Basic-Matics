@@ -9,8 +9,19 @@ This is a rewrite of my Basic-Matics app to Python
 This is the start of a migration from my original app written in Kotlin to Python, as I found many bugs and
 I want to rewrite it in a simpler way.
 
+## Usage ##
+To start the app, from the home directory, run:
+```shell
+python -m basicmatics
+```
+or python3 if you're in UNIX.
+
+This is a very simple app, and it is everything clear when you run it.
+
+It is pretty clear and intuitive, so you won't have problem.
+
 ## Installation ##
-Python 3.7 or higher and Tkinter are necessary for building this app.
+In case you want it installed on your system, you'll need Python 3.7 or higher and Tkinter for building this app.
 ### UNIX / Linux ###
 #### Configuration ####
 First, install the Python Tkinter module:
@@ -52,12 +63,6 @@ Then, `cd` to the project directory and run
 python3 -m build && pip3 install basicmatics-$VERSION-py3-none-any.whl
 ```
 
-Now it's successfully installed! To run it, type
-
-```shell
-python3 -m basicmatics
-```
-
 ### Windows ###
 You just need to install build module
 
@@ -71,13 +76,4 @@ Then, `cd` to the project directory and run
 python -m build && pip install basicmatics-$VERSION-py3-none-any.whl
 ```
 
-Now it's successfully installed! To run it, type
-
-```shell
-python -m basicmatics
-```
-
-## Usage ##
-This is a very simple app, and it is everything clear when you run it.
-
-It is pretty clear and intuitive, so you won't have problem
+Now it's successfully installed!
