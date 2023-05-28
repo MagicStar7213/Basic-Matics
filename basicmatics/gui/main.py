@@ -9,16 +9,27 @@ try:
     from ttkthemes import ThemedStyle
     import distro
 except ImportError or ModuleNotFoundError:
-    print("Installing missing packages...")
-    install_packages = run(['pip', 'install', '-q', '-q', '-q', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0'])
-    if install_packages.returncode != 0:
-        print("Python Packages are externally managed. Installing packages with APT...")
-        run(['sudo', 'apt', 'install', 'python3-pil.imagetk', 'python3-ttkthemes', 'python3-distro'])
+    print("Missing packages")
+    pip_install = input("Would you want to install them? [y/n] ")
+    if pip_install == 'y':
+        print("Installing with PIP...")
+        install_packages = run(['pip', 'install', '-q', '-q', '-q', 'Pillow>=9.4.0', 'ttkthemes>=3.2.2', 'distro>=1.8.0'])
+        if install_packages.returncode != 0:
+            print("Python Packages are externally managed")
+            install = input("Would you wish to install them from your distro repos? [y/n]")
+            if install == 'y':
+                run(['sudo', 'apt', 'install', 'python3-pil.imagetk', 'python3-ttkthemes', 'python3-distro'])
+            else:
+                print("Packages required to run app missing. Exiting...")
+                exit(1)
+        else:
+            print("Packages successfully installed")
+        from PIL import Image, ImageTk
+        from ttkthemes import ThemedStyle
+        import distro
     else:
-        print("Packages successfully installed")
-    from PIL import Image, ImageTk
-    from ttkthemes import ThemedStyle
-    import distro
+        print("Packages required to run app missing. Exiting...")
+        exit(1)
 
 from basicmatics.gui.ops import *
 from basicmatics.gui.settings import Settings
