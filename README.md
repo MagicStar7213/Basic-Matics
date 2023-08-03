@@ -1,7 +1,8 @@
 # Basic-Matics #
 <!-- Badges -->
 ![Python](https://img.shields.io/badge/-Python-yellow?labelColor=blue&logo=python&logoColor=white&style=flat-square)
-![Release](https://img.shields.io/github/v/tag/magicstar7213/basic-matics?logo=github&sort=semver&style=flat-square)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/magicstar7213/basic-matics/python-package.yml?logo=github&style=flat-square)
+![Release](https://img.shields.io/github/v/release/magicstar7213/basic-matics?logo=github&sort=semver&style=flat-square)
 ![License](https://img.shields.io/github/license/magicstar7213/basic-matics?logo=github&style=flat-square)
 
 This is a rewrite of my Basic-Matics app to Python
